@@ -1,0 +1,28 @@
+:root {
+    /* Typography */
+    --font-main: 'Segoe UI', sans-serif;
+
+    /* Features colors */
+    --color-main: #dc143c;
+    --color-hover-main: #a10d2e;
+
+    /* Light Theme */
+    --color-bg: white;
+    --color-text: black;
+    --color-accent: var(--color-main);
+    --color-link: var(--color-main);
+
+    /* Dark Theme */
+    --color-bg-dark: white;
+    --color-text-dark: black;
+    --color-accent-dark: var(--color-main);
+    --color-link-dark: var(--color-main);
+
+    /* Layout spacing */
+    --spacing: 1rem;
+
+    /* Button sets */
+    --color-button-text-light: white;
+    --color-button-text-dark: white;
+
+}
