@@ -3,3 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+body.dark a {
+    color: var(--color-link-dark);
+}
