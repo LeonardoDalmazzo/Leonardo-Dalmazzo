@@ -1,0 +1,9 @@
+.home-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+}

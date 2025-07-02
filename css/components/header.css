@@ -35,10 +35,6 @@ body.dark #header {
   transition: color 0.3s, transform 0.2s;
 }
 
-/* 
-    Light and Dark theme button 
-*/
-
 #theme-toggle {
     background: none;
     border: none;
@@ -47,9 +43,6 @@ body.dark #header {
     color: var(--color-accent);
 }
 
-/* 
-    Hide header on scroll down 
-*/
 .header-hidden {
     transform: translateY(-100%);
 }
