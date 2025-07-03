@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="css/components/homeSection.css" />
     <link rel="stylesheet" href="css/components/aboutSection.css" />
+    <link rel="stylesheet" href="css/components/contactSection.css" />
 </head>
 
 <body>
@@ -54,6 +55,48 @@
                 <div class="about-text">
                     <h2>About Me</h2>
                     <p>I am a full stack developer experienced in C#, JavaScript, HTML, CSS, Blazor, and AWS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact" data-aos="fade-up">
+            <h2>Get in Touch</h2>
+            <p>I’m open to new opportunities, projects, or collaborations. Send me a message through any of the
+                platforms below:</p>
+
+            <ul class="contact-list">
+                <li><i class="fas fa-envelope"></i> <a href="mailto:leleomesquita@gmail.com">leleomesquita@gmail.com</a>
+                </li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/leonardodalmazzo"
+                        target="_blank">LinkedIn</a></li>
+                <li><i class="fab fa-github"></i> <a href="https://github.com/LeonardoDalmazzo"
+                        target="_blank">GitHub</a></li>
+                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511991795884" target="_blank">WhatsApp</a>
+                </li>
+            </ul>
+
+            <div class="form-area" data-aos="fade-up">
+                <h2>Send a Message</h2>
+                <form action="https://formsubmit.co/leleomesquita@gmail.com" method="POST" autocomplete="off">
+                    <input type="text" name="_honey" style="display: none" />
+                    <input type="hidden" name="_next" value="/thanks.html" />
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="text" name="name" placeholder="Your name" required />
+                    <input type="email" name="email" placeholder="Your email" required />
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
+            <div class="map-area" data-aos="fade-up">
+                <h2>Location</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7317.64634437863!2d-46.70353306039083!3d-23.50287782655105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef84e463a702d%3A0xffa287ef463c2002!2sFreguesia%20do%20%C3%93%2C%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1731722470141!5m2!1sen!2sbr"
+                        width="100%" height="300" style="border: 0" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </section>
