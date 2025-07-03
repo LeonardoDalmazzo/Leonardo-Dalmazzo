@@ -1,4 +1,4 @@
-.moreOptions-buttons {
+.options-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   margin-top: 2rem;
 }
 
-.moreOptions-button {
+.option-button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -17,5 +17,26 @@
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--color-main);
-  color: #fff !important; 
+  color: #fff;
+}
+
+/* More > Light Theme: maintain high contrast */
+body:not(.dark) .option-button {
+  background-color: var(--color-main);
+  color: #fff;
+}
+
+/* More > Dark Theme */
+body.dark .option-button {
+  background-color: var(--color-main);
+  color: #fff;
+}
+
+/* More> Hover effect for both themes */
+.option-button:hover {
+  background-color: var(--color-hover-main);
+  color: #fff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.20);
+  transition: color 0.3s, transform 0.2s;
 }
