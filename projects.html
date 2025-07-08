@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Leonardo Dalmazzo</title>
+  <meta name="description" content="Projects by Leonardo Dalmazzo - Full Stack Developer" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script src="js/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .projects-page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .projects-page h1 {
+      font-size: 2.5rem;
+      color: var(--color-main);
+      margin-bottom: 1rem;
+    }
+
+    .projects-page p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+
+    .btn-glow-bounce {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      color: #fff !important;
+      background-color: var(--color-main);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      border: none;
+      box-shadow: 0 0 12px var(--color-main);
+      animation: glowBounce 2s ease-in-out infinite;
+      transform-origin: center;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-glow-bounce:hover {
+      background-color: var(--color-hover-main);
+    }
+
+    @keyframes glowBounce {
+      0% {
+        transform: translateY(0);
+        box-shadow: 0 0 10px var(--color-main);
+      }
+
+      50% {
+        transform: translateY(-8px);
+        box-shadow: 0 0 20px var(--color-main);
+      }
+
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 10px var(--color-main);
+      }
+    }
+
+    body.dark .projects-page p {
+      color: var(--color-text-dark);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="projects-page" data-aos="fade-up">
+    <h1><i class="fas fa-folder-open"></i> Projects Coming Soon!</h1>
+    <p>This page will showcase a curated selection of my best personal, academic, and freelance projects — including repositories, tech stacks, challenges, and more.</p>
+    <a href="index.html" class="btn-glow-bounce"><i class="fas fa-home"></i> Back to Home</a>
+  </main>
+
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
+    AOS.init();
+  </script>
+</body>
+
+</html>
