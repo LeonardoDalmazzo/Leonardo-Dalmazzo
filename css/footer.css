@@ -1,0 +1,20 @@
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-main);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--color-hover-main);
+    transition: color 0.3s
+}
+
+body.dark .footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+    border-top: 1px solid var(--color-main);
+}
