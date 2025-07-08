@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+    <meta name="description" content="Thank you for your message - Leonardo Dalmazzo Portfolio" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .thanks-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .thanks-page h1 {
+            font-size: 2.5rem;
+            color: var(--color-main);
+            margin-bottom: 1rem;
+        }
+
+        .thanks-page p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+        }
+
+        .thanks-page a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            color: #fff !important;
+            background-color: var(--color-main);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.20);
+            transition: color 0.3s, transform 0.2s;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .thanks-page a:hover {
+            background-color: var(--color-hover-main);
+            transform: scale(1.50);
+
+        }
+
+        body.dark .thanks-page p {
+            color: var(--color-text-dark);
+        }
+
+        /* Glow + Bounce Animation */
+        .btn-glow-bounce {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            color: #fff !important;
+            background-color: var(--color-main);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 0 0 12px var(--color-main);
+            animation: glowBounce 2s ease-in-out infinite;
+            transform-origin: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-glow-bounce:hover {
+            background-color: var(--color-hover-main);
+        }
+
+        /* Keyframes */
+        @keyframes glowBounce {
+            0% {
+                transform: translateY(0);
+                box-shadow: 0 0 10px var(--color-main);
+            }
+
+            50% {
+                transform: translateY(-8px);
+                box-shadow: 0 0 20px var(--color-main);
+            }
+
+            100% {
+                transform: translateY(0);
+                box-shadow: 0 0 10px var(--color-main);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="thanks-page" data-aos="fade-up">
+        <h1><i class="fas fa-check-circle"></i> Thank You!</h1>
+        <p>Your message has been sent successfully. I appreciate your interest and will get back to you as soon as
+            possible.</p>
+        <a href="index.html" class="btn-glow-bounce">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </main>
+
+    <script>
+        // Aplica o tema escuro, se salvo no localStorage
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark");
+        }
+    </script>
+
+</body>
+
+</html>
