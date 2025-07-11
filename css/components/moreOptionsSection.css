@@ -34,7 +34,7 @@ body.dark .moreOption-button {
 
 /* More> Hover effect for both themes */
 .moreOption-button:hover {
-  background-color: var(--color-hover-main);
+  background-color: var(--color-hover-main) !important;
   color: #fff !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.20);
