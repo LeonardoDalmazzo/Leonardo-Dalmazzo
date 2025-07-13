@@ -13,14 +13,26 @@
 }
 
 .repo-card a {
-    color: var(--color-main);
+    color: var(--color-bg) !important;
     font-weight: bold;
 }
 
+.repo-card a:hover {
+    color: var(--color-hover-main);
+}
+
+.option-button {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
 .repo-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
 }
