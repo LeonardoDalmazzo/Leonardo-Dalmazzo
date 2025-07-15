@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const githubLink = document.createElement("a");
         githubLink.href = repo.html_url;
         githubLink.target = "_blank";
-        githubLink.className = "option-button";
+        githubLink.className = "btn-glow-bounce";
         githubLink.innerHTML = `<i class="fab fa-github"></i> View on GitHub`;
 
         linksContainer.appendChild(githubLink);
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const liveLink = document.createElement("a");
           liveLink.href = repo.homepage;
           liveLink.target = "_blank";
-          liveLink.className = "option-button";
+          liveLink.className = "btn-glow-bounce";
           liveLink.innerHTML = `<i class="fas fa-globe"></i> GitHub Pages`;
           linksContainer.appendChild(liveLink);
         }
