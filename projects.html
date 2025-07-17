@@ -36,46 +36,6 @@
       color: var(--color-text);
       margin-bottom: 2rem;
     }
-
-    .btn-glow-bounce {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      color: #fff !important;
-      background-color: var(--color-main);
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 0.5rem;
-      border: none;
-      box-shadow: 0 0 12px var(--color-main);
-      animation: glowBounce 2s ease-in-out infinite;
-      transform-origin: center;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .btn-glow-bounce:hover {
-      background-color: var(--color-hover-main);
-    }
-
-    @keyframes glowBounce {
-      0% {
-        transform: translateY(0);
-        box-shadow: 0 0 10px var(--color-main);
-      }
-
-      50% {
-        transform: translateY(-8px);
-        box-shadow: 0 0 20px var(--color-main);
-      }
-
-      100% {
-        transform: translateY(0);
-        box-shadow: 0 0 10px var(--color-main);
-      }
-    }
-
-    body.dark .projects-page p {
-      color: var(--color-text-dark);
-    }
   </style>
 </head>
 
@@ -91,8 +51,6 @@
     if (savedTheme === "dark") {
       document.body.classList.add("dark");
     }
-
-    AOS.init();
   </script>
 </body>
 
