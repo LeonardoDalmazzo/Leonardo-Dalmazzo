@@ -12,16 +12,16 @@
 @import url("footer.css");
 
 /* Componentes */
-@import url("components/sections.css");
-@import url("components/homeSection.css");
-@import url("components/aboutSection.css");
-@import url("components/contactSection.css");
-@import url("components/moreOptionsSection.css");
-@import url("components/techStackSection.css");
-@import url("components/repositoriesSection.css");
-@import url("components/certificationsSection.css");
-@import url("components/experienceSection.css");
-@import url("components/resumeSection.css");
+@import url("sections/sections.css");
+@import url("sections/homeSection.css");
+@import url("sections/aboutSection.css");
+@import url("sections/contactSection.css");
+@import url("sections/moreOptionsSection.css");
+@import url("sections/techStackSection.css");
+@import url("sections/repositoriesSection.css");
+@import url("sections/certificationsSection.css");
+@import url("sections/experienceSection.css");
+@import url("sections/resumeSection.css");
 
 /* ==========================
    Estilos globais
