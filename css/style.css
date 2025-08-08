@@ -9,7 +9,7 @@
 /* Layout principal */
 @import url("responsive.css");
 @import url("header.css");
-@import url("footer.css");
+@import url("../components/layout/footer/footer.css");
 
 /* Componentes */
 @import url("sections/sections.css");
