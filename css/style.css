@@ -12,6 +12,7 @@
 @import url("../components/layout/footer/footer.css");
 
 /* Componentes */
+@import url("../components/buttons/buttonGlowBounce.css");
 @import url("sections/sections.css");
 @import url("sections/homeSection.css");
 @import url("sections/aboutSection.css");
