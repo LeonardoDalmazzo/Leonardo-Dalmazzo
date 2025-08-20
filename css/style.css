@@ -19,7 +19,7 @@
 @import url("sections/contactSection.css");
 @import url("sections/moreOptionsSection.css");
 @import url("sections/techStackSection.css");
-@import url("sections/repositoriesSection.css");
+@import url("../components/repositories/repositoriesSection.css");
 @import url("sections/certificationsSection.css");
 @import url("sections/experienceSection.css");
 @import url("sections/resumeSection.css");
