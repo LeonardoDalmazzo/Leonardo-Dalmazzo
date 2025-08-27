@@ -17,3 +17,16 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 - Estrutura modular (JS, CSS, componentes reutilizáveis)
 
 ---
+
+##  Tecnologias Utilizadas
+
+| Categoria           | Ferramentas & Tecnologias                                    |
+|--------------------|--------------------------------------------------------------|
+| **Front-end**       | HTML5, CSS3, JavaScript (Vanilla)                           |
+| **Animações**       | [AOS - Animate On Scroll](https://michalsnik.github.io/aos/) |
+| **Componentização** | JavaScript modularizado para header, footer e outros        |
+| **Contato**         | FormSubmit.co com redirecionamento e resposta automática     |
+| **Tema**            | Toggle claro/escuro com `localStorage`                      |
+| **Hospedagem**      | GitHub Pages                                                 |
+
+---
