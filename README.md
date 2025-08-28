@@ -30,3 +30,5 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 | **Hospedagem**      | GitHub Pages                                                 |
 
 ---
+
+##  Estrutura do Projeto
