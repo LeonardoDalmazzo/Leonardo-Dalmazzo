@@ -20,15 +20,66 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 
 ##  Tecnologias Utilizadas
 
-| Categoria           | Ferramentas & Tecnologias                                    |
-|--------------------|--------------------------------------------------------------|
+| Categoria           | Ferramentas & Tecnologias                                   |
+|---------------------|-------------------------------------------------------------|
 | **Front-end**       | HTML5, CSS3, JavaScript (Vanilla)                           |
-| **Animações**       | [AOS - Animate On Scroll](https://michalsnik.github.io/aos/) |
+| **Animações**       | [AOS - Animate On Scroll](https://michalsnik.github.io/aos/)|
 | **Componentização** | JavaScript modularizado para header, footer e outros        |
-| **Contato**         | FormSubmit.co com redirecionamento e resposta automática     |
+| **Contato**         | FormSubmit.co com redirecionamento e resposta automática    |
 | **Tema**            | Toggle claro/escuro com `localStorage`                      |
-| **Hospedagem**      | GitHub Pages                                                 |
+| **Hospedagem**      | GitHub Pages                                                |
 
 ---
 
 ##  Estrutura do Projeto
+
+```
+/
+├── index.html
+├── projects.html
+├── thanks.html
+├── README.md
+├── components/
+│   ├── buttons/
+│   │   └── buttonGlowBounce.css
+│   ├── layout/
+│   │   ├── header/
+│   │   │   ├── header.js
+│   │   │   └── header.css
+│   │   └── footer/
+│   │       ├── footer.js
+│   │       └── footer.css
+│   └── repositories/
+│       ├── repositories.js
+│       └── repositories.css
+├── css/
+│   ├── style.css          # Centraliza os @import dos estilos
+│   ├── reset.css
+│   ├── variables.css
+│   ├── responsive.css
+│   ├── sections/
+│   │   ├── sections.css
+│   │   ├── homeSection.css
+│   │   ├── aboutSection.css
+│   │   ├── contactSection.css
+│   │   ├── moreOptionsSection.css
+│   │   ├── techStackSection.css
+│   │   ├── certificationsSection.css
+│   │   ├── experienceSection.css
+│   │   └── resumeSection.css
+├── js/
+│   └── script.js
+├── assets/
+│   ├── docs/
+│   │   └── resume.pdf
+│   ├── icones/
+│   │   └── # (vazio por enquanto, usar para favicon e ícones futuros)
+│   └── imgs/
+│       ├── progile.jpg
+│       ├── progile01.jpg
+│       └── certifications/
+│           ├── Balta - Fundamentos do Csharp.png
+│           ├── Balta - Sites Responsivos.png
+│           ├── certificate-alura-gitGithub.png
+│           └── certificate-awsAcademy-cloudFoundations.png
+```
