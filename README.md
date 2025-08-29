@@ -33,7 +33,7 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 
 ##  Estrutura do Projeto
 
-```
+```bash
 /
 ├── index.html
 ├── projects.html
@@ -78,7 +78,7 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 │       ├── progile.jpg
 │       ├── progile01.jpg
 │       └── certifications/
-│           ├── Balta - Fundamentos do Csharp.png
+│           ├── Balta - Fundamentos de Csharp.png
 │           ├── Balta - Sites Responsivos.png
 │           ├── certificate-alura-gitGithub.png
 │           └── certificate-awsAcademy-cloudFoundations.png
