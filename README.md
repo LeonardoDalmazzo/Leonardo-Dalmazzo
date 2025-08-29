@@ -83,3 +83,17 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 │           ├── certificate-alura-gitGithub.png
 │           └── certificate-awsAcademy-cloudFoundations.png
 ```
+---
+
+##  Como Rodar Localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/LeonardoDalmazzo/Leonardo-Dalmazzo.git
+
+# Acesse o diretório do projeto
+cd Leonardo-Dalmazzo
+
+# Abra index.html diretamente no navegador
+# Ou use um servidor local para testar SPA:
+npx http-server .  # (ou use Live Server no VSCode)
