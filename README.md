@@ -97,3 +97,14 @@ cd Leonardo-Dalmazzo
 # Abra index.html diretamente no navegador
 # Ou use um servidor local para testar SPA:
 npx http-server .  # (ou use Live Server no VSCode)
+```
+---
+
+## 🚀 Status do Projeto
+
+**Leonardo Dalmazzo | Portfolio & Blog de Repositórios GitHub**
+
+| Status        | Descrição                                                                 |
+|---------------|---------------------------------------------------------------------------|
+| 🟢 Em desenvolvimento | O projeto está ativo, com melhorias contínuas e integração de novas funcionalidades. |
+| ⚡ Funcionalidades | SPA (Single Page Application), temas claro/escuro, blog de projetos, formulário de contato profissional. |
