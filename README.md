@@ -1,11 +1,11 @@
-# 🚀 Leonardo Dalmazzo | Portfolio SPA
+# ✨ Leonardo Dalmazzo | Portfolio SPA
 
 Bem-vindo ao meu portfólio profissional — um projeto **Single Page Application (SPA)** interativo, destacando meus projetos, habilidades e experiência. Acesse ao vivo:  
 [Portfolio Online](https://leonardodalmazzo.github.io/Leonardo-Dalmazzo/)
 
 ---
 
-##  Sobre o Projeto
+## 🎯 Sobre o Projeto
 
 Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 
@@ -18,7 +18,7 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 
 ---
 
-##  Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 | Categoria           | Ferramentas & Tecnologias                                   |
 |---------------------|-------------------------------------------------------------|
@@ -31,7 +31,7 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 
 ---
 
-##  Estrutura do Projeto
+## 🗂️ Estrutura do Projeto
 
 ```bash
 /
@@ -85,7 +85,7 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 ```
 ---
 
-##  Como Rodar Localmente
+## 💡 Como Rodar Localmente
 
 ```bash
 # Clone o repositório
@@ -100,7 +100,7 @@ npx http-server .  # (ou use Live Server no VSCode)
 ```
 ---
 
-## 🚀 Status do Projeto
+## 🛠️ Status do Projeto
 
 **Leonardo Dalmazzo | Portfolio & Blog de Repositórios GitHub**
 
