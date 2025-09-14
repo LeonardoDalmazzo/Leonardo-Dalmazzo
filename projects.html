@@ -4,67 +4,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Leonardo Dalmazzo</title>
-  <meta name="description" content="Projects by Leonardo Dalmazzo - Full Stack Developer" />
-  <!-- Performance para o CDN -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <meta name="description" content="Portfolio Projects of Leonardo Dalmazzo - Full Stack Developer" />
+  <title>Leonardo Dalmazzo | Projects</title>
 
-  <!-- Font Awesome (carrega os ícones) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- CSS centralizado -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <style>
-    .projects-page {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .projects-page h1 {
-      font-size: 2.5rem;
-      color: var(--color-main);
-      margin-bottom: 1rem;
-    }
-
-    .projects-page p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      color: var(--color-text);
-      margin-bottom: 2rem;
-    }
-
-    body.dark .projects-page p {
-      color: var(--color-text-dark);
-    }
-  </style>
+  <link rel="stylesheet" href="css/sections/projectsSection.css" />
 </head>
 
 <body>
-  <main class="projects-page" data-aos="fade-up">
-    <h1><i class="fas fa-folder-open"></i> Projects Coming Soon!</h1>
-    <p>This page will showcase a curated selection of my best personal, academic, and freelance projects — including
-      repositories, tech stacks, challenges, and more.</p>
-    <a href="index.html" class="btn-glow-bounce"><i class="fas fa-home"></i> Back to Home</a>
+  <!-- Header principal já importado dinamicamente -->
+  <script src="components/layout/header/header.js" defer></script>
+
+  <main class="section projects">
+
+    <!-- Header secundário de filtros -->
+    <header class="projects-header">
+      <h2><i class="fas fa-folder-open"></i> Projects</h2>
+      <nav class="projects-filters" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="front-end">Front-end</button>
+        <button class="filter-btn" data-filter="back-end">Back-end</button>
+        <button class="filter-btn" data-filter="dados">Data</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </nav>
+    </header>
+
+    <!-- Lista de projetos -->
+    <section class="projects-grid" id="projects-list">
+
+      <!-- Exemplo de card -->
+      <article class="project-card" data-category='["front-end"]'>
+        <div class="project-img">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.io_firstPortfolio_.png" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>Landing Page Modern</h3>
+          <p class="project-tech">HTML, CSS, JS</p>
+          <p class="project-desc">Responsive website built with mobile-first principles.</p>
+          <span class="project-date">2024</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-category='["design"]'>
+        <div class="project-img">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.io_fiancailles_ (1).png" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>Landing Page Modern</h3>
+          <p class="project-tech">HTML, CSS, JS</p>
+          <p class="project-desc">Responsive website built with mobile-first principles.</p>
+          <span class="project-date">2024</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-category='["back-end"]'>
+        <div class="project-img">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.io_dreamoto_ (1).png" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>API RESTful</h3>
+          <p class="project-tech">C#, ASP.NET, SQL</p>
+          <p class="project-desc">Backend API for authentication and CRUD operations.</p>
+          <span class="project-date">2023</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-category='["tools","dados"]'>
+        <div class="project-img">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.io_schedule_.png" alt="schedule - Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>asdasd RESTful</h3>
+          <p class="project-tech">C#, ASP.NET, SQL</p>
+          <p class="project-desc">Backend API for authentication and CRUD operations.</p>
+          <span class="project-date">2023</span>
+        </div>
+      </article>
+
+    </section>
+
   </main>
 
-  <script>
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark");
-    }
-  </script>
+  <!-- Footer -->
+  <script src="components/layout/footer/footer.js" defer></script>
 
-  <script src="components/layout/header/header.js"></script>
-  <script src="components/layout/footer/footer.js"></script>
-
+  <!-- Scripts -->
+  <script src="js/projects.js" defer></script>
 </body>
 
 </html>
