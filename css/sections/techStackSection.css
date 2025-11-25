@@ -29,3 +29,17 @@
     transform: translateY(-5px);
     color: var(--color-hover-main);
 }
+
+/* Mobile First: já usa auto-fit (3 colunas normalmente) */
+
+@media (min-width: 768px) {
+    .stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
