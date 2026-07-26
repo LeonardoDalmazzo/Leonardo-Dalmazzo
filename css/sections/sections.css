@@ -1,21 +1,59 @@
 .section {
+    width: 100%;
+    min-width: 0;
     min-height: 100vh;
     padding: 4rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    overflow-wrap: break-word;
 }
 
 .section h2 {
     font-family: var(--font-nav);
     font-size: 2rem;
     font-weight: 700;
+    line-height: 1.08;
     text-align: center;
     color: var(--color-main);
     margin-bottom: 1rem;
+    overflow-wrap: break-word;
+    text-wrap: balance;
 }
 
 .section p, .timeline-item p {
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.section > * {
+    min-width: 0;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 5rem 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 2.35rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .section {
+        padding-inline: 2rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .section {
+        padding-inline: 3rem;
+    }
+
+    .section h2 {
+        font-size: 2.65rem;
+    }
 }

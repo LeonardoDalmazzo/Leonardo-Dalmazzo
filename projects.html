@@ -19,12 +19,13 @@
   <!-- Header principal já importado dinamicamente -->
   <script src="components/layout/header/header.js" defer></script>
 
-  <main class="section projects">
+  <main class="section showcase-page projects">
 
     <!-- Header secundário de filtros -->
-    <header class="projects-header">
+    <header class="showcase-header projects-header">
       <h2>Projetos</h2>
-      <nav class="projects-filters" aria-label="Filtros de projetos">
+      <p>Projetos selecionados do portf&oacute;lio, com tecnologias, categoria e pr&eacute;via visual.</p>
+      <nav class="showcase-filters projects-filters" aria-label="Filtros de projetos">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="front-end">Front-end</button>
         <button class="filter-btn" data-filter="back-end">Back-end</button>
@@ -35,54 +36,54 @@
     </header>
 
     <!-- Lista de projetos -->
-    <section class="projects-grid" id="projects-list">
+    <section class="showcase-grid projects-grid" id="projects-list" data-showcase-gallery>
 
       <!-- Exemplo de card -->
-      <article class="project-card" data-category='["front-end"]'>
-        <div class="project-img">
+      <article class="showcase-card project-card" data-category='["front-end"]'>
+        <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/leonardodalmazzo.github.io_firstPortfolio_.png" alt="Captura de tela do projeto">
         </div>
-        <div class="project-info">
-          <h3>Meu primeiro portf&oacute;lio</h3>
-          <p class="project-tech">HTML, CSS, JS</p>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Meu primeiro portf&oacute;lio</h3>
+          <p class="project-tech" data-showcase-subtitle>HTML, CSS, JS</p>
           <p class="project-desc">Site responsivo criado com princ&iacute;pios mobile-first.</p>
-          <span class="project-date">2024</span>
+          <time class="project-date" datetime="2024">2024</time>
         </div>
       </article>
 
-      <article class="project-card" data-category='["design"]'>
-        <div class="project-img">
+      <article class="showcase-card project-card" data-category='["design"]'>
+        <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/leonardodalmazzo.github.io_fiancailles_ (1).png" alt="Captura de tela do projeto">
         </div>
-        <div class="project-info">
-          <h3>Fiançailles</h3>
-          <p class="project-tech">HTML, CSS, JS</p>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Fiançailles</h3>
+          <p class="project-tech" data-showcase-subtitle>HTML, CSS, JS</p>
           <p class="project-desc">Site responsivo criado com princ&iacute;pios mobile-first.</p>
-          <span class="project-date">2024</span>
+          <time class="project-date" datetime="2024">2024</time>
         </div>
       </article>
 
-      <article class="project-card" data-category='["back-end"]'>
-        <div class="project-img">
+      <article class="showcase-card project-card" data-category='["back-end"]'>
+        <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/leonardodalmazzo.github.io_dreamoto_ (1).png" alt="Captura de tela do projeto">
         </div>
-        <div class="project-info">
-          <h3>Dreamoto</h3>
-          <p class="project-tech">C#, ASP.NET, SQL</p>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Dreamoto</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET, SQL</p>
           <p class="project-desc">API back-end para autentica&ccedil;&atilde;o e opera&ccedil;&otilde;es CRUD.</p>
-          <span class="project-date">2023</span>
+          <time class="project-date" datetime="2023">2023</time>
         </div>
       </article>
 
-      <article class="project-card" data-category='["tools","dados"]'>
-        <div class="project-img">
+      <article class="showcase-card project-card" data-category='["tools","dados"]'>
+        <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/leonardodalmazzo.github.io_schedule_.png" alt="Schedule - captura de tela do projeto">
         </div>
-        <div class="project-info">
-          <h3>Schedule</h3>
-          <p class="project-tech">C#, ASP.NET, SQL</p>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Schedule</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET, SQL</p>
           <p class="project-desc">API back-end para autentica&ccedil;&atilde;o e opera&ccedil;&otilde;es CRUD.</p>
-          <span class="project-date">2023</span>
+          <time class="project-date" datetime="2023">2023</time>
         </div>
       </article>
 
@@ -95,7 +96,7 @@
 
   <!-- Scripts -->
   <script src="js/colorCustomizer.js" defer></script>
-  <script src="js/projects.js" defer></script>
+  <script src="components/showcase/showcaseGallery.js" defer></script>
 </body>
 
 </html>

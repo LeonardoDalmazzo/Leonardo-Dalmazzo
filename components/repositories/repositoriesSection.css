@@ -7,6 +7,7 @@
 
 .repositories-content {
     width: min(100%, 78rem);
+    min-width: 0;
     margin: 0 auto;
     display: grid;
     gap: 2rem;
@@ -41,6 +42,9 @@
     font-size: 1rem;
     line-height: 1.6;
     opacity: 0.86;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 body.dark .repositories-header p {
@@ -89,6 +93,7 @@ body.dark .repo-card:focus-within {
 
 .repo-card__body {
     flex: 1;
+    min-width: 0;
     display: grid;
     align-content: start;
     gap: 0.75rem;
@@ -103,6 +108,9 @@ body.dark .repo-card:focus-within {
     font-size: 0.8rem;
     font-weight: 800;
     line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 .repo-card__eyebrow i {
@@ -114,7 +122,10 @@ body.dark .repo-card:focus-within {
     color: var(--color-main);
     font-size: 1.18rem;
     line-height: 1.2;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    text-wrap: balance;
 }
 
 .repo-card p {
@@ -123,6 +134,9 @@ body.dark .repo-card:focus-within {
     font-size: 0.95rem;
     line-height: 1.55;
     opacity: 0.88;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 body.dark .repo-card p {
@@ -162,7 +176,11 @@ body.dark .repo-card p {
     border-radius: 999px;
     font-size: 0.78rem;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.15;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 body.dark .repo-stack__item {
@@ -192,7 +210,11 @@ body.dark .repo-stack__item {
     border-radius: 999px;
     font-size: 0.82rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.15;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 body.dark .repo-meta li {
@@ -223,6 +245,9 @@ body.dark .repo-meta li {
     font-weight: 800;
     line-height: 1.2;
     text-align: center;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
@@ -290,6 +315,9 @@ body.dark .repo-card--loading {
     border-radius: 8px;
     line-height: 1.5;
     text-align: center;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
 }
 
 body.dark .repo-empty {
@@ -339,5 +367,16 @@ body.dark .repo-empty {
 
     .repo-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1920px) {
+    .repositories-content {
+        width: min(100%, 108rem);
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1.5rem;
     }
 }

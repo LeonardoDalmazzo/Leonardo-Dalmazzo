@@ -14,6 +14,7 @@
 /* Componentes */
 @import url("../components/buttons/buttonGlowBounce.css");
 @import url("sections/sections.css");
+@import url("../components/showcase/showcaseGallery.css");
 @import url("sections/homeSection.css");
 @import url("sections/aboutSection.css");
 @import url("sections/contactSection.css");
@@ -36,12 +37,15 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
+    min-width: 320px;
     font-family: var(--font-main);
     background-color: var(--color-bg);
     color: var(--color-text);
+    overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -57,4 +61,11 @@ a {
 
 body.dark a {
     color: var(--color-link-dark);
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
 }

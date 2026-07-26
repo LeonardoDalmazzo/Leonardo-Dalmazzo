@@ -11,18 +11,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/sections/certificationsSection.css" />
 </head>
 
 <body>
     <script src="components/layout/header/header.js" defer></script>
 
-    <main class="section certifications">
+    <main class="section showcase-page certifications">
 
-        <header class="certifications-header">
+        <header class="showcase-header certifications-header">
             <h2>Certifica&ccedil;&otilde;es</h2>
             <p>Algumas das minhas conquistas e certifica&ccedil;&otilde;es:</p>
-            <nav class="certifications-filters" aria-label="Filtros de certifica&ccedil;&otilde;es">
+            <nav class="showcase-filters certifications-filters" aria-label="Filtros de certifica&ccedil;&otilde;es">
                 <button class="filter-btn active" data-filter="all">Todas</button>
                 <button class="filter-btn" data-filter="skills">Compet&ecirc;ncias</button>
                 <button class="filter-btn" data-filter="tools">Ferramentas</button>
@@ -34,28 +33,29 @@
             </nav>
         </header>
 
-        <section class="cards-grid" id="certifications-list">
+        <section class="showcase-grid cards-grid" id="certifications-list" data-showcase-gallery>
 
-            <article class="card" data-category='["skills","tools"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["skills","tools"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Senai/Características-Técnicas-das-Motocicletas-Triumph-Adv/Características Técnicas das Motocicletas Triumph Adventure01.png"
                         alt="Certifica&ccedil;&atilde;o SENAI - frente">
                     <img src="assets/imgs/certifications/Senai/Características-Técnicas-das-Motocicletas-Triumph-Adv/Características Técnicas das Motocicletas Triumph Adventure02.png"
                         alt="Certifica&ccedil;&atilde;o SENAI - verso (conte&uacute;do program&aacute;tico)">
                 </div>
-                <div class="card-info"> <h3>Características Técnicas das Motocicletas Triumph Adventure</h3>
+                <div class="showcase-card__content card-info">
+                    <h3>Características Técnicas das Motocicletas Triumph Adventure</h3>
                     <p class="sub-title">Senai "Conde José Vicente Azevedo"</p>
                     <p class="description">"Compreensão e funcionamento de diversos sistemas que equipam as motocicletas Triumph Adventure."</p>
                     <time class="date" datetime="2025-08">Agosto de 2025</time>
                 </div>
             </article>
 
-            <article class="card" data-category='["programming-languages","skills","software"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["programming-languages","skills","software"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Fundamentos de Csharp/Fundamentos de Csharp.png"
                         alt="Certificado Balta.io - Fundamentos do C#">
                 </div>
-                <div class="card-info">
+                <div class="showcase-card__content card-info">
                     <h3>Fundamentos do C#</h3>
                     <p class="sub-title">Balta.io</p>
                     <p class="description">"Aprenda ou consolide todos os conhecimentos necessários para trabalhar com C# e .NET!"</p>
@@ -63,14 +63,14 @@
                 </div>
             </article>
 
-            <article class="card" data-category='["tools","cloud","software","hardware","redes"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["tools","cloud","software","hardware","redes"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Senai/Implantação-de-Serviços-em-Nuvem-AWS-Cloud-Practitioner-Foundational/Implantação de Serviços em Nuvem - AWS Cloud Practitioner Foundational1.png"
                         alt="SENAI AWS - frente">
                     <img src="assets/imgs/certifications/Senai/Implantação-de-Serviços-em-Nuvem-AWS-Cloud-Practitioner-Foundational/Implantação de Serviços em Nuvem - AWS Cloud Practitioner Foundational2.png"
                         alt="SENAI AWS - verso">
                 </div>
-                <div class="card-info">
+                <div class="showcase-card__content card-info">
                     <h3>Implantação de Serviços em Nuvem - AWS Cloud Practitioner</h3>
                     <p class="sub-title">SENAI "Mariano Ferraz"</p>
                     <p class="description">"Competências relativas à implantação e gerenciamento de serviços em nuvem AWS."</p>
@@ -78,12 +78,12 @@
                 </div>
             </article>
 
-            <article class="card" data-category='["tools","cloud","software","hardware","redes"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["tools","cloud","software","hardware","redes"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/AWS Academy/cloudFoundations.png"
                         alt="Certificado AWS Academy Cloud Foundations">
                 </div>
-                <div class="card-info">
+                <div class="showcase-card__content card-info">
                     <h3>AWS Academy Cloud Foundations</h3>
                     <p class="sub-title">AWS Academy</p>
                     <p class="description">Visão geral dos conceitos de computação em nuvem e produtos AWS.</p>
@@ -91,14 +91,14 @@
                 </div>
             </article>
 
-            <article class="card" data-category='["programming-languages","skills","software"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["programming-languages","skills","software"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Sites Responsivos/Sites Responsivos.png"
                         alt="Certificado Balta.io - Sites Responsivos">
                     <img src="assets/imgs/certifications/Balta.io/Sites Responsivos/oldVersionSitesResponsivos.png"
                         alt="Balta.io - vers&atilde;o antiga">
                 </div>
-                <div class="card-info">
+                <div class="showcase-card__content card-info">
                     <h3>Sites Responsivos</h3>
                     <p class="sub-title">Balta.io</p>
                     <p class="description">"Aprenda a criar sites responsivos utilizando HTML e CSS."</p>
@@ -106,12 +106,12 @@
                 </div>
             </article>
 
-            <article class="card" data-category='["programming-languages","skills","tools","software"]'>
-                <div class="card-img">
+            <article class="showcase-card certification-card" data-category='["programming-languages","skills","tools","software"]'>
+                <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Alura/gitGithub.png"
                         alt="Alura Git & GitHub">
                 </div>
-                <div class="card-info">
+                <div class="showcase-card__content card-info">
                     <h3>Git & GitHub</h3>
                     <p class="sub-title">Alura</p>
                     <p class="description">"Principais comandos usados no dia a dia nesta ferramenta."</p>
@@ -125,6 +125,6 @@
 
     <script src="components/layout/footer/footer.js" defer></script>
     <script src="js/colorCustomizer.js" defer></script>
-    <script src="js/certifications.js" defer></script>
+    <script src="components/showcase/showcaseGallery.js" defer></script>
 </body>
 </html>
