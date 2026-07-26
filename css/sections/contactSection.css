@@ -1,16 +1,70 @@
+.contact {
+    gap: 1.25rem;
+}
+
+.contact-lead {
+    width: min(100%, 58rem);
+    margin: 0 auto;
+}
+
 .contact-list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    width: min(100%, 56rem);
+    margin: 0 auto;
+    display: grid;
+    gap: 0.75rem;
 }
 
 .contact-list li {
-    margin: 0.5rem 0;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--color-main);
+    background: var(--color-bg);
+    border: 1px solid var(--color-main);
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .contact-list i {
-    margin-right: 0.5rem;
+    margin-right: 0;
     color: var(--color-accent);
+}
+
+.contact-list a {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    transition: color 0.2s ease;
+}
+
+.contact-list li:hover,
+.contact-list li:focus-within {
+    color: var(--color-hover-main);
+    border-color: var(--color-hover-main);
+    transform: translateY(-2px);
+}
+
+.contact-list li:hover i,
+.contact-list li:focus-within i,
+.contact-list li:hover a,
+.contact-list li:focus-within a {
+    color: var(--color-hover-main);
+}
+
+body.dark .contact-list li {
+    background: var(--color-bg-dark);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.form-area,
+.map-area {
+    width: min(100%, 72rem);
+    margin: 0 auto;
 }
 
 form {
@@ -43,7 +97,62 @@ form button:hover {
 }
 
 .map-container {
-    margin-top: 1rem;
     border-radius: 8px;
     overflow: hidden;
+    border: 1px solid var(--color-main);
+}
+
+.map-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.map-card {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.map-card h3 {
+    font-family: var(--font-nav);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-main);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 14rem;
+    display: block;
+    border: 0;
+}
+
+@media (min-width: 700px) {
+    .contact-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact {
+        justify-content: flex-start;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .contact-list {
+        width: min(100%, 72rem);
+        grid-template-columns: minmax(18rem, 1.5fr) repeat(3, minmax(8rem, 1fr));
+    }
+
+    .contact-list li {
+        padding: 0.85rem;
+    }
+
+    .map-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .map-container iframe {
+        height: 16rem;
+    }
 }

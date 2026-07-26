@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = Array.from(document.querySelectorAll(".card"));
   
     // -----------------------
-    // 1. FILTER LOGIC
+    // 1. Lógica de filtros
     // -----------------------
     function parseCategories(raw) {
       if (!raw) return [];
@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const categories = parseCategories(card.dataset.category);
         const match = (f === "all") || categories.includes(f);
         
-        card.style.display = match ? "flex" : "none"; // Use flex to keep card layout
+        card.style.display = match ? "flex" : "none";
         if(match) {
-            card.classList.add("aos-animate"); // Re-trigger animations if using AOS
+            card.classList.add("aos-animate");
         }
       });
   
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     // -----------------------
-    // 2. CAROUSEL & MODAL LOGIC
+    // 2. Lógica de carrossel e modal
     // -----------------------
     
     // Estrutura do Modal
@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.className = "modal-overlay";
     modal.innerHTML = `
       <div class="modal-inner">
-        <img class="modal-image" src="" alt="Certificate Preview">
+        <img class="modal-image" src="" alt="Pr&eacute;via do certificado">
         <div class="modal-caption"></div>
         <div class="modal-controls">
             <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="modal-close">Close</button>
+            <button class="modal-close">Fechar</button>
             <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>

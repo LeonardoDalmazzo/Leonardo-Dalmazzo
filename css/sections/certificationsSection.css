@@ -10,6 +10,7 @@
 }
 
 .certifications-header h2 {
+  font-family: var(--font-nav);
   font-size: 2rem;
   color: var(--color-main);
   margin-bottom: 0.5rem;

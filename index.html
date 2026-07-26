@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Leonardo Dalmazzo - Full Stack Developer" />
-    <title>Leonardo Dalmazzo | Full Stack Developer</title>
+    <meta name="description"
+        content="Portf&oacute;lio de Leonardo Dalmazzo - Suporte t&eacute;cnico, manuten&ccedil;&atilde;o de computadores, redes, desenvolvimento web e aplicativos full stack." />
+    <title>Leonardo Dalmazzo | TI e Desenvolvimento Web</title>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
@@ -18,42 +19,93 @@
 
 <body>
     <header id="header">
-        <nav class="navbar">
-            <a href="#home"><i class="fas fa-house"></i> Home</a>
-            <a href="#about"><i class="fas fa-user"></i> About</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="#moreOptions"><i class="fas fa-plus"></i> More</a>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button>
+        <nav class="navbar" role="navigation" aria-label="Navega&ccedil;&atilde;o principal">
+            <a class="nav-brand" href="#home" aria-label="Ir para o in&iacute;cio">ADML</a>
+
+            <div class="nav-actions">
+                <div class="nav-primary" aria-label="Navega&ccedil;&atilde;o prim&aacute;ria">
+                    <a href="#home"><i class="fas fa-house"></i> In&iacute;cio</a>
+                    <a href="#about"><i class="fas fa-code"></i> Sobre</a>
+                    <a href="#contact"><i class="fas fa-envelope"></i> Contato</a>
+                </div>
+
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primary-navigation"
+                    aria-expanded="false" data-menu-toggle>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-drawer" id="primary-navigation" data-nav-menu>
+                    <a class="drawer-primary" href="#home"><i class="fas fa-house"></i> In&iacute;cio</a>
+                    <a class="drawer-primary" href="#about"><i class="fas fa-code"></i> Sobre</a>
+                    <a class="drawer-primary" href="#contact"><i class="fas fa-envelope"></i> Contato</a>
+                    <a href="#repositories"><i class="fab fa-github"></i> Reposit&oacute;rios</a>
+                    <a href="certifications.html"><i class="fas fa-certificate"></i> Certifica&ccedil;&otilde;es</a>
+                    <a href="projects.html"><i class="fas fa-folder-open"></i> Projetos</a>
+                </div>
+            </div>
+
         </nav>
     </header>
+
+    <button id="theme-toggle" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <button id="scroll-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <main>
         <section id="home" class="section home">
             <div class="home-content">
                 <h1>Leonardo Dalmazzo</h1>
-                <p>Full Stack Developer</p>
+                <p>Suporte t&eacute;cnico, manuten&ccedil;&atilde;o de computadores, redes, desenvolvimento de solu&ccedil;&otilde;es web e aplicativos full stack.</p>
             </div>
         </section>
 
         <section id="about" class="section about" data-aos="fade-up">
             <div class="about-content">
-                <div class="about-photo">
-                    <img src="assets/imgs/profile.jpg" alt="Leonardo Dalmazzo" />
+                <h2 data-aos="fade-up">Sobre</h2>
+                <div class="adml-insight" aria-label="ADML meaning">
+                    <p>ADML nasce das iniciais invertidas de Leonardo Mesquita Dalmazzo Antunes e resume minha atuação entre aplicativos, sites, suporte técnico e infraestrutura de redes.</p>
+                    <div class="adml-pillars">
+                        <article>
+                            <h3>Software</h3>
+                            <p>Agilidade &bull; Desenvolvimento &bull; Modernização &bull; Lógica</p>
+                        </article>
+                        <article>
+                            <h3>Hardware</h3>
+                            <p>Assistência &bull; Diagnóstico &bull; Manutenção &bull; Ligação</p>
+                        </article>
+                    </div>
                 </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>Aspiring Full Stack Developer with hands-on experience and strong interest in C#, JavaScript,
-                        HTML, CSS, Blazor, AWS, and SQLite.</p>
+                <div class="stack-grid">
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-html5"></i><span>HTML</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-c"></i><span>C</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-code"></i><span>C#</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-database"></i><span>SQL</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-aws"></i><span>AWS</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-github"></i><span>GitHub</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-alt"></i><span>Google Sheets</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-word"></i><span>Word</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-project-diagram"></i><span>Scrum</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fas fa-columns"></i><span>Kanban</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-linux"></i><span>Linux</span></div>
+                    <div class="stack-card" data-aos="zoom-in"><i class="fab fa-windows"></i><span>Windows</span></div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="section contact" data-aos="fade-up">
-            <h2>Get in Touch</h2>
-            <p>I’m open to new opportunities, projects, or collaborations. Send me a message through any of the
-                platforms below:</p>
+            <h2>Contato</h2>
+            <p class="contact-lead">Estou aberto a novas oportunidades, projetos e colaborações. Envie uma mensagem por uma das plataformas abaixo:</p>
 
             <ul class="contact-list">
                 <li><i class="fas fa-envelope"></i> <a
@@ -68,7 +120,7 @@
             </ul>
 
             <div class="form-area" data-aos="fade-up">
-                <h2>Send a Message</h2>
+                <p>Enviar um e-mail: </p>
                 <form action="https://formsubmit.co/leonardodalmazzo.dev@gmail.com" method="POST" autocomplete="off">
 
                     <input type="hidden" name="_template" value="table">
@@ -79,42 +131,57 @@
                         value="https://leonardodalmazzo.github.io/Leonardo-Dalmazzo/thanks.html">
 
                     <input type="hidden" name="_autoresponse"
-                        value="Thank you for contacting me! I have received your message and will get back to you as soon as possible." />
+                        value="Obrigado pelo contato! Recebi sua mensagem e retornarei assim que poss&iacute;vel." />
 
-                    <input type="text" name="name" placeholder="Your full name" required />
-                    <input type="email" name="email" placeholder="Your best email" required />
-                    <textarea name="message" placeholder="Write your message here..." required></textarea>
+                    <input type="text" name="name" placeholder="Seu nome completo" required />
+                    <input type="email" name="email" placeholder="Seu melhor e-mail" required />
+                    <textarea name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
 
-                    <button type="submit">Send</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
 
             <div class="map-area" data-aos="fade-up">
-                <h2>Location</h2>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7317.64634437863!2d-46.70353306039083!3d-23.50287782655105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef84e463a702d%3A0xffa287ef463c2002!2sFreguesia%20do%20%C3%93%2C%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1731722470141!5m2!1sen!2sbr"
-                        width="100%" height="300" style="border: 0" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <h2 style="color: var(--color-hover-main);">Localização</h2>
+                <div class="map-grid">
+                    <article class="map-card">
+                        <div class="map-container">
+                            <iframe
+                                title="Mapa da regi&atilde;o da Freguesia do &Oacute;"
+                                src="https://www.google.com/maps?q=Freguesia%20do%20%C3%93%2C%20S%C3%A3o%20Paulo%20-%20SP&amp;output=embed"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </article>
+                    <article class="map-card">
+                        <div class="map-container">
+                            <iframe
+                                title="Mapa do bairro da Vila Mariana"
+                                src="https://www.google.com/maps?q=Vila%20Mariana%2C%20S%C3%A3o%20Paulo%20-%20SP&amp;output=embed"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section id="moreOptions" class="section more">
-            <h2 data-aos="fade-up">More Options</h2>
+            <h2 data-aos="fade-up">Mais op&ccedil;&otilde;es</h2>
             <div class="moreOptions-buttons">
 
-                <a href="#techstack" class="moreOption-button" data-aos="fade-right">
-                    <i class="fas fa-code"></i> Tech Stack
+                <a href="#about" class="moreOption-button" data-aos="fade-right">
+                    <i class="fas fa-code"></i> Sobre
                 </a>
 
                 <a href="#repositories" class="moreOption-button" data-aos="fade-left">
-                    <i class="fab fa-github"></i> Repositories
+                    <i class="fab fa-github"></i> Reposit&oacute;rios
                 </a>
 
                 <a href="certifications.html" class="moreOption-button" data-aos="fade-right">
-                    <i class="fas fa-certificate"></i> Certifications
+                    <i class="fas fa-certificate"></i> Certifica&ccedil;&otilde;es
                 </a>
 
                 <!-- MANUTENÇÃo
@@ -128,42 +195,26 @@
                 -->
 
                 <a href="projects.html" class="moreOption-button" data-aos="zoom-in">
-                    <i class="fas fa-folder-open"></i> Projects
+                    <i class="fas fa-folder-open"></i> Projetos
                 </a>
 
             </div>
         </section>
 
-        <section id="techstack" class="section techstack">
-            <h2 data-aos="fade-up">Tech Stack</h2>
-            <div class="stack-grid">
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-html5"></i><span>HTML</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-c"></i><span>C</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-code"></i><span>C#</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-aws"></i><span>AWS</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-github"></i><span>GitHub</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-excel"></i><span>Excel</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-alt"></i><span>Google Sheets</span>
+        <section id="repositories" class="section repositories" aria-labelledby="repositories-title">
+            <div class="repositories-content">
+                <div class="repositories-header" data-aos="fade-up">
+                    <span class="repositories-kicker">GitHub</span>
+                    <h2 id="repositories-title">Reposit&oacute;rios</h2>
+                    <p>Uma sele&ccedil;&atilde;o de reposit&oacute;rios e projetos em destaque, com links para c&oacute;digo quando p&uacute;blico e site quando dispon&iacute;vel.</p>
                 </div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-file-word"></i><span>Word</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-project-diagram"></i><span>Scrum</span>
-                </div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fas fa-columns"></i><span>Kanban</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-linux"></i><span>Linux</span></div>
-                <div class="stack-card" data-aos="zoom-in"><i class="fab fa-windows"></i><span>Windows</span></div>
-            </div>
-        </section>
 
-        <section id="repositories" class="section repositories">
-            <h2 data-aos="fade-up">GitHub Repositories</h2>
-            <p data-aos="fade-up">A selection of public repositories from my GitHub profile:</p>
-            <div id="repo-list" data-aos="fade-up">
+                <div id="repo-list" class="repo-grid" aria-live="polite" data-aos="fade-up">
+                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
                 </div>
+            </div>
         </section>
 
         <!-- MANUTENÇÂO
@@ -270,6 +321,7 @@
 
 
     <script src="components/layout/footer/footer.js"></script> <script src="js/script.js"></script>
+    <script src="js/colorCustomizer.js"></script>
     <script src="components/repositories/repositoriesGitHub.js" defer></script>
 </body>
 
