@@ -1,13 +1,18 @@
 const COLOR_STORAGE_KEY = "siteColors";
+const MIN_THEME_CONTRAST_RATIO = 4.5;
 const THEME_COLOR_PRESETS = {
   light: {
-    main: "#000000",
-    secondary: "#be5103",
+    main: "#0f4c5c",
+    secondary: "#9a3412",
   },
   dark: {
-    main: "#cccccc",
-    secondary: "#be5103",
+    main: "#8bcfc2",
+    secondary: "#f1a56b",
   },
+};
+const COLOR_LABELS = {
+  main: "principal",
+  secondary: "secundaria",
 };
 
 function getCurrentTheme() {
@@ -18,15 +23,29 @@ function getThemePresetColors(theme = getCurrentTheme()) {
   return THEME_COLOR_PRESETS[theme] || THEME_COLOR_PRESETS.light;
 }
 
-function getSavedSiteColors() {
+function getStoredSiteColorThemes() {
   const savedColors = localStorage.getItem(COLOR_STORAGE_KEY);
 
-  if (!savedColors) return null;
+  if (!savedColors) return {};
 
   try {
-    return JSON.parse(savedColors) || null;
+    const parsedColors = JSON.parse(savedColors) || {};
+
+    if (isValidHexColor(parsedColors.main) || isValidHexColor(parsedColors.secondary)) {
+      return {
+        [getCurrentTheme()]: normalizeSiteColors(parsedColors, getThemePresetColors()),
+      };
+    }
+
+    return Object.keys(THEME_COLOR_PRESETS).reduce((themes, theme) => {
+      if (parsedColors[theme]) {
+        themes[theme] = normalizeSiteColors(parsedColors[theme], getThemePresetColors(theme));
+      }
+
+      return themes;
+    }, {});
   } catch {
-    return null;
+    return {};
   }
 }
 
@@ -43,6 +62,90 @@ function getReadableTextColor(hexColor) {
   return brightness > 150 ? "#111" : "#fff";
 }
 
+function getRgbColor(hexColor) {
+  const red = parseInt(hexColor.slice(1, 3), 16);
+  const green = parseInt(hexColor.slice(3, 5), 16);
+  const blue = parseInt(hexColor.slice(5, 7), 16);
+
+  return `${red}, ${green}, ${blue}`;
+}
+
+function getRgbColorParts(color) {
+  if (isValidHexColor(color)) {
+    return color.slice(1).match(/.{2}/g).map((part) => parseInt(part, 16));
+  }
+
+  const rgbMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+
+  if (!rgbMatch) return null;
+
+  return rgbMatch.slice(1, 4).map(Number);
+}
+
+function getRelativeLuminance(color) {
+  const rgbParts = getRgbColorParts(color);
+
+  if (!rgbParts) return null;
+
+  const [red, green, blue] = rgbParts.map((part) => {
+    const channel = part / 255;
+    return channel <= 0.03928
+      ? channel / 12.92
+      : ((channel + 0.055) / 1.055) ** 2.4;
+  });
+
+  return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
+}
+
+function getContrastRatio(firstColor, secondColor) {
+  const firstLuminance = getRelativeLuminance(firstColor);
+  const secondLuminance = getRelativeLuminance(secondColor);
+
+  if (firstLuminance === null || secondLuminance === null) return 0;
+
+  const lighter = Math.max(firstLuminance, secondLuminance);
+  const darker = Math.min(firstLuminance, secondLuminance);
+
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function getThemeBackgroundColor(theme = getCurrentTheme()) {
+  const variableName = theme === "dark" ? "--color-bg-dark" : "--color-bg";
+  const fallbackColor = theme === "dark" ? "#141a1d" : "#ffffff";
+  const themeColor = getComputedStyle(document.documentElement)
+    .getPropertyValue(variableName)
+    .trim();
+
+  return themeColor || fallbackColor;
+}
+
+function validateSiteColors(colors, theme = getCurrentTheme()) {
+  const normalizedColors = normalizeSiteColors(colors, getThemePresetColors(theme));
+  const themeBackgroundColor = getThemeBackgroundColor(theme);
+  const failedColors = Object.entries(normalizedColors)
+    .map(([key, color]) => ({
+      key,
+      label: COLOR_LABELS[key],
+      ratio: getContrastRatio(color, themeBackgroundColor),
+    }))
+    .filter(({ ratio }) => ratio < MIN_THEME_CONTRAST_RATIO);
+
+  if (!failedColors.length) {
+    return { isValid: true, failedKeys: [], message: "" };
+  }
+
+  const themeLabel = theme === "dark" ? "escuro" : "claro";
+  const failedList = failedColors
+    .map(({ label, ratio }) => `${label} (${ratio.toFixed(1)}:1)`)
+    .join(" e ");
+
+  return {
+    isValid: false,
+    failedKeys: failedColors.map(({ key }) => key),
+    message: `Contraste insuficiente no tema ${themeLabel}: ${failedList}. Minimo: ${MIN_THEME_CONTRAST_RATIO}:1.`,
+  };
+}
+
 function normalizeSiteColors(colors, fallbackColors = getThemePresetColors()) {
   return {
     main: isValidHexColor(colors?.main) ? colors.main : fallbackColors.main,
@@ -53,34 +156,67 @@ function normalizeSiteColors(colors, fallbackColors = getThemePresetColors()) {
 function applySiteColors(colors) {
   const normalizedColors = normalizeSiteColors(colors);
   const buttonTextColor = getReadableTextColor(normalizedColors.main);
+  const secondaryButtonTextColor = getReadableTextColor(normalizedColors.secondary);
 
   document.documentElement.style.setProperty("--color-main", normalizedColors.main);
+  document.documentElement.style.setProperty("--color-main-rgb", getRgbColor(normalizedColors.main));
   document.documentElement.style.setProperty("--color-hover-main", normalizedColors.secondary);
+  document.documentElement.style.setProperty("--color-hover-main-rgb", getRgbColor(normalizedColors.secondary));
+  document.documentElement.style.setProperty("--color-text-on-main", buttonTextColor);
+  document.documentElement.style.setProperty("--color-text-on-secondary", secondaryButtonTextColor);
   document.documentElement.style.setProperty("--color-button-text-light", buttonTextColor);
   document.documentElement.style.setProperty("--color-button-text-dark", buttonTextColor);
+  document.documentElement.style.setProperty("--color-button-text-secondary", secondaryButtonTextColor);
 
   return normalizedColors;
 }
 
-function getActiveSiteColors() {
-  return normalizeSiteColors(getSavedSiteColors(), getThemePresetColors());
+function getSavedSiteColors(theme = getCurrentTheme()) {
+  return getStoredSiteColorThemes()[theme] || null;
+}
+
+function getActiveSiteColors(theme = getCurrentTheme()) {
+  const savedColors = getSavedSiteColors(theme);
+
+  if (savedColors && validateSiteColors(savedColors, theme).isValid) {
+    return normalizeSiteColors(savedColors, getThemePresetColors(theme));
+  }
+
+  return getThemePresetColors(theme);
 }
 
 function applyActiveSiteColors() {
   return applySiteColors(getActiveSiteColors());
 }
 
-function saveSiteColors(colors) {
-  const normalizedColors = normalizeSiteColors(colors, getThemePresetColors());
+function saveSiteColors(colors, theme = getCurrentTheme()) {
+  const normalizedColors = normalizeSiteColors(colors, getThemePresetColors(theme));
+  const storedColorThemes = {
+    ...getStoredSiteColorThemes(),
+    [theme]: normalizedColors,
+  };
 
-  localStorage.setItem(COLOR_STORAGE_KEY, JSON.stringify(normalizedColors));
+  localStorage.setItem(COLOR_STORAGE_KEY, JSON.stringify(storedColorThemes));
   applySiteColors(normalizedColors);
+
+  return normalizedColors;
+}
+
+function resetSiteColors(theme = getCurrentTheme()) {
+  const storedColorThemes = getStoredSiteColorThemes();
+  delete storedColorThemes[theme];
+
+  if (Object.keys(storedColorThemes).length) {
+    localStorage.setItem(COLOR_STORAGE_KEY, JSON.stringify(storedColorThemes));
+  } else {
+    localStorage.removeItem(COLOR_STORAGE_KEY);
+  }
 }
 
 function createColorCustomizer() {
   if (document.getElementById("color-toggle")) return;
 
-  const activeColors = applyActiveSiteColors();
+  let activeColors = applyActiveSiteColors();
 
   const colorToggle = document.createElement("button");
   colorToggle.id = "color-toggle";
@@ -99,12 +235,13 @@ function createColorCustomizer() {
     <h2>Paleta</h2>
     <label>
       <span>Principal</span>
-      <input id="primary-color-input" type="color" value="${activeColors.main}">
+      <input id="primary-color-input" type="color" value="${activeColors.main}" aria-describedby="color-feedback">
     </label>
     <label>
       <span>Secund&aacute;ria</span>
-      <input id="secondary-color-input" type="color" value="${activeColors.secondary}">
+      <input id="secondary-color-input" type="color" value="${activeColors.secondary}" aria-describedby="color-feedback">
     </label>
+    <p class="color-panel__feedback" id="color-feedback" aria-live="polite"></p>
     <button class="color-reset" type="button">Restaurar</button>
   `;
 
@@ -113,6 +250,17 @@ function createColorCustomizer() {
   const primaryColorInput = colorPanel.querySelector("#primary-color-input");
   const secondaryColorInput = colorPanel.querySelector("#secondary-color-input");
   const resetButton = colorPanel.querySelector(".color-reset");
+  const feedback = colorPanel.querySelector("#color-feedback");
+
+  function setColorFeedback(message = "", isError = false) {
+    feedback.textContent = message;
+    feedback.classList.toggle("is-error", isError);
+  }
+
+  function setInputErrorState(failedKeys = []) {
+    primaryColorInput.classList.toggle("is-invalid", failedKeys.includes("main"));
+    secondaryColorInput.classList.toggle("is-invalid", failedKeys.includes("secondary"));
+  }
 
   function setColorPanelState(isOpen) {
     colorPanel.hidden = !isOpen;
@@ -122,10 +270,24 @@ function createColorCustomizer() {
   }
 
   function updateColors() {
-    saveSiteColors({
+    const theme = getCurrentTheme();
+    const nextColors = normalizeSiteColors({
       main: primaryColorInput.value,
       secondary: secondaryColorInput.value,
-    });
+    }, getThemePresetColors(theme));
+    const validation = validateSiteColors(nextColors, theme);
+
+    if (!validation.isValid) {
+      primaryColorInput.value = activeColors.main;
+      secondaryColorInput.value = activeColors.secondary;
+      setInputErrorState(validation.failedKeys);
+      setColorFeedback(validation.message, true);
+      return;
+    }
+
+    activeColors = saveSiteColors(nextColors, theme);
+    setInputErrorState();
+    setColorFeedback();
   }
 
   function syncColorInputs() {
@@ -133,6 +295,9 @@ function createColorCustomizer() {
 
     primaryColorInput.value = colors.main;
     secondaryColorInput.value = colors.secondary;
+    activeColors = colors;
+    setInputErrorState();
+    setColorFeedback();
   }
 
   colorToggle.addEventListener("click", () => {
@@ -143,7 +308,7 @@ function createColorCustomizer() {
   secondaryColorInput.addEventListener("input", updateColors);
 
   resetButton.addEventListener("click", () => {
-    localStorage.removeItem(COLOR_STORAGE_KEY);
+    resetSiteColors();
     syncColorInputs();
   });
 

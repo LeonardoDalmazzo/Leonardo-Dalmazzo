@@ -83,7 +83,13 @@ function loadHeader() {
   }
 
   const savedTheme = localStorage.getItem("theme");
-  setThemeState(savedTheme === "dark");
+  const initialTheme = savedTheme === "dark" ? "dark" : "light";
+
+  if (!savedTheme) {
+    localStorage.setItem("theme", initialTheme);
+  }
+
+  setThemeState(initialTheme === "dark");
 
   toggleBtn?.addEventListener("click", () => {
     const isDark = !bodyElement.classList.contains("dark");

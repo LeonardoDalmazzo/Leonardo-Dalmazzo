@@ -8,7 +8,7 @@
 
 .about h2 {
     font-family: var(--font-nav);
-    color: var(--color-hover-main);
+    color: var(--color-text-on-main);
 }
 
 .about-content {
@@ -33,7 +33,7 @@
     width: min(100%, 48rem);
     display: grid;
     gap: 1rem;
-    color: var(--color-bg);
+    color: var(--color-text-on-main);
 }
 
 .adml-insight > p {
@@ -74,7 +74,7 @@
 }
 
 body.dark .adml-insight {
-    color: var(--color-bg-dark);
+    color: var(--color-text-on-main);
 }
 
 body.dark .adml-pillars article {

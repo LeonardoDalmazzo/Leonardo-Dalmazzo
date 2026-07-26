@@ -19,21 +19,26 @@
     --font-display: 'GraffitiStyle', 'Segoe UI', sans-serif;
     --font-nav: 'GraffitiMenu', 'Segoe UI', sans-serif;
 
-    --color-main: rgb(0, 0, 0);
-    --color-hover-main: rgb(190, 81, 3);
+    --color-main: #0f4c5c;
+    --color-main-rgb: 15, 76, 92;
+    --color-hover-main: #9a3412;
+    --color-hover-main-rgb: 154, 52, 18;
 
     --color-bg: #ffffff;
-    --color-text: #000000;
+    --color-text: #17201f;
     --color-accent: var(--color-main);
     --color-link: var(--color-main);
 
-    --color-bg-dark: #1e1e1e;
-    --color-text-dark: #ffffff;
+    --color-bg-dark: #141a1d;
+    --color-text-dark: #f4f7f6;
     --color-accent-dark: var(--color-main);
     --color-link-dark: var(--color-main);
 
     --spacing: 1rem;
 
-    --color-button-text-light: #fff;
-    --color-button-text-dark: #111;
+    --color-text-on-main: #fff;
+    --color-text-on-secondary: #fff;
+    --color-button-text-light: var(--color-text-on-main);
+    --color-button-text-dark: var(--color-text-on-main);
+    --color-button-text-secondary: var(--color-text-on-secondary);
 }

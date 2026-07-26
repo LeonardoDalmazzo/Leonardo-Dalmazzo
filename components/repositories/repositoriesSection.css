@@ -63,7 +63,7 @@ body.dark .repositories-header p {
     padding: 1rem;
     text-align: left;
     background-color: var(--color-bg);
-    border: 1px solid rgba(255, 0, 76, 0.26);
+    border: 1px solid rgba(var(--color-hover-main-rgb), 0.24);
     border-radius: 8px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
@@ -157,8 +157,8 @@ body.dark .repo-card p {
     align-items: center;
     padding: 0.32rem 0.55rem;
     color: var(--color-main);
-    background: rgba(255, 0, 76, 0.08);
-    border: 1px solid rgba(255, 0, 76, 0.18);
+    background: rgba(var(--color-hover-main-rgb), 0.08);
+    border: 1px solid rgba(var(--color-hover-main-rgb), 0.18);
     border-radius: 999px;
     font-size: 0.78rem;
     font-weight: 800;
@@ -187,8 +187,8 @@ body.dark .repo-stack__item {
     gap: 0.4rem;
     padding: 0.35rem 0.55rem;
     color: var(--color-text);
-    background: rgba(255, 0, 76, 0.08);
-    border: 1px solid rgba(255, 0, 76, 0.16);
+    background: rgba(var(--color-hover-main-rgb), 0.08);
+    border: 1px solid rgba(var(--color-hover-main-rgb), 0.16);
     border-radius: 999px;
     font-size: 0.82rem;
     font-weight: 700;
@@ -228,7 +228,7 @@ body.dark .repo-meta li {
 
 .repo-link:hover,
 .repo-link:focus-visible {
-    color: #111 !important;
+    color: var(--color-button-text-secondary) !important;
     background-color: var(--color-hover-main);
     border-color: var(--color-hover-main);
     transform: translateY(-0.125rem);
@@ -249,7 +249,7 @@ body.dark .repo-link--secondary {
     cursor: not-allowed;
     color: var(--color-text) !important;
     background-color: transparent;
-    border-color: rgba(255, 0, 76, 0.26);
+    border-color: rgba(var(--color-hover-main-rgb), 0.24);
     opacity: 0.72;
     transform: none;
 }
@@ -267,7 +267,7 @@ body.dark .repo-link--disabled:focus-visible {
     overflow: hidden;
     background:
         linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent),
-        linear-gradient(rgba(255, 0, 76, 0.12), rgba(255, 0, 76, 0.12));
+        linear-gradient(rgba(var(--color-hover-main-rgb), 0.12), rgba(var(--color-hover-main-rgb), 0.12));
     background-size: 180% 100%, 100% 100%;
     animation: repoSkeleton 1.35s ease-in-out infinite;
 }
@@ -285,8 +285,8 @@ body.dark .repo-card--loading {
     margin: 0 auto;
     padding: 1rem;
     color: var(--color-text);
-    background: rgba(255, 0, 76, 0.08);
-    border: 1px solid rgba(255, 0, 76, 0.2);
+    background: rgba(var(--color-hover-main-rgb), 0.08);
+    border: 1px solid rgba(var(--color-hover-main-rgb), 0.2);
     border-radius: 8px;
     line-height: 1.5;
     text-align: center;
