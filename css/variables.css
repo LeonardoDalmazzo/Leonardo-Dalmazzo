@@ -1,8 +1,26 @@
+@font-face {
+    font-family: 'GraffitiStyle';
+    src: url('../assets/fonts/GraffitiStyle-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GraffitiMenu';
+    src: url('../assets/fonts/GraffitiMenu-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --font-main: 'Segoe UI', sans-serif;
+    --font-display: 'GraffitiStyle', 'Segoe UI', sans-serif;
+    --font-nav: 'GraffitiMenu', 'Segoe UI', sans-serif;
 
-    --color-main: #0000FF;
-    --color-hover-main: #6f00ff;
+    --color-main: rgb(0, 0, 0);
+    --color-hover-main: rgb(190, 81, 3);
 
     --color-bg: #ffffff;
     --color-text: #000000;
@@ -17,5 +35,5 @@
     --spacing: 1rem;
 
     --color-button-text-light: #fff;
-    --color-button-text-dark: #fff;
+    --color-button-text-dark: #111;
 }
