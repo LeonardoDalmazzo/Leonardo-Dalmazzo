@@ -95,6 +95,7 @@ body.dark .repo-card:focus-within {
     flex: 1;
     min-width: 0;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: 0.75rem;
 }
@@ -122,7 +123,7 @@ body.dark .repo-card:focus-within {
     color: var(--color-main);
     font-size: 1.18rem;
     line-height: 1.2;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     word-break: normal;
     hyphens: auto;
     text-wrap: balance;
