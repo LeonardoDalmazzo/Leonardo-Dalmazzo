@@ -4,6 +4,10 @@
   background: #e0e0e0;
 }
 
+.certifications .showcase-card__media img {
+  object-fit: contain;
+}
+
 body.dark .certifications .showcase-card__media {
   background: #1e1e1e;
 }
