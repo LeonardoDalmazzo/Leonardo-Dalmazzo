@@ -1,0 +1,198 @@
+.content-page {
+    --page-border: rgba(var(--color-main-rgb), 0.18);
+    --page-surface: #f5f8f8;
+    --page-muted: #536261;
+    --page-radius: 1rem;
+
+    width: min(100%, 90rem);
+    min-height: calc(100vh - 15rem);
+    margin-inline: auto;
+    padding: 6rem 1rem 4rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+body.dark .content-page {
+    --page-border: rgba(255, 255, 255, 0.16);
+    --page-surface: #1d282b;
+    --page-muted: #b8c3c1;
+
+    color: var(--color-text-dark);
+}
+
+.content-page__header {
+    max-width: 48rem;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.content-page__header h1 {
+    margin: 0 0 0.8rem;
+    color: var(--color-main);
+    font-family: var(--font-nav);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+.content-page__header p {
+    color: var(--page-muted);
+}
+
+.content-page__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.content-page__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--page-border);
+    border-radius: 999px;
+}
+
+main.content-page a {
+    color: inherit;
+}
+
+.content-page a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+.content-panels {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    max-width: 72rem;
+    margin-inline: auto;
+}
+
+.content-panel {
+    min-width: 0;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px solid var(--page-border);
+    border-radius: var(--page-radius);
+    scroll-margin-top: 6rem;
+    overflow-wrap: anywhere;
+}
+
+.content-panel__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.25rem;
+    background: var(--page-surface);
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.content-panel h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.content-panel p {
+    margin: 0;
+    color: var(--page-muted);
+}
+
+.content-panel__list {
+    display: grid;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.content-panel__list h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 650;
+}
+
+.content-panel__list p {
+    font-size: 0.95rem;
+}
+
+.content-panel__note {
+    display: grid;
+    gap: 0.65rem;
+    margin-block: 1.5rem;
+    padding: 1.25rem;
+    background: var(--page-surface);
+    border-radius: 0.75rem;
+}
+
+.content-panel__note strong {
+    font-weight: 650;
+}
+
+.content-page .page-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    max-width: 100%;
+    min-height: 44px;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-on-main);
+    background: var(--color-main);
+    border: 1px solid var(--color-main);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.content-page .page-button:hover {
+    box-shadow: 0 0 0 3px var(--page-border);
+}
+
+.content-page .page-button:focus-visible {
+    outline-color: var(--color-text);
+}
+
+body.dark .content-page .page-button:focus-visible {
+    outline-color: var(--color-text-dark);
+}
+
+.content-page__closing {
+    margin: 2rem auto 0;
+    text-align: center;
+}
+
+.content-page__closing a {
+    display: inline-block;
+    padding: 0.75rem;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+@media (min-width: 768px) {
+    .content-page {
+        padding-inline: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-page {
+        padding-top: 7rem;
+    }
+
+    .content-panels {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

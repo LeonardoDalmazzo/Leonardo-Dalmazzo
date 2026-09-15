@@ -19,34 +19,23 @@
 
 <body>
     <header id="header">
-        <nav class="navbar" role="navigation" aria-label="Navega&ccedil;&atilde;o principal">
-            <a class="nav-brand" href="#home" aria-label="Ir para o in&iacute;cio">ADML</a>
-
-            <div class="nav-actions">
-                <div class="nav-primary" aria-label="Navega&ccedil;&atilde;o prim&aacute;ria">
-                    <a href="#home"><i class="fas fa-house"></i> In&iacute;cio</a>
-                    <a href="#about"><i class="fas fa-code"></i> Sobre</a>
-                    <a href="#contact"><i class="fas fa-envelope"></i> Contato</a>
-                </div>
-
-                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primary-navigation"
-                    aria-expanded="false" data-menu-toggle>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <div class="nav-drawer" id="primary-navigation" data-nav-menu>
-                    <a class="drawer-primary" href="#home"><i class="fas fa-house"></i> In&iacute;cio</a>
-                    <a class="drawer-primary" href="#about"><i class="fas fa-code"></i> Sobre</a>
-                    <a class="drawer-primary" href="#contact"><i class="fas fa-envelope"></i> Contato</a>
-                    <a href="#repositories"><i class="fab fa-github"></i> Reposit&oacute;rios</a>
-                    <a href="certifications.html"><i class="fas fa-certificate"></i> Certifica&ccedil;&otilde;es</a>
-                    <a href="projects.html"><i class="fas fa-folder-open"></i> Projetos</a>
-                </div>
-            </div>
-
-        </nav>
+    <nav class="navbar" aria-label="Navega&ccedil;&atilde;o principal">
+      <a class="nav-brand" href="#home" aria-label="Ir para o in&iacute;cio">ADML</a>
+      <div class="nav-actions">
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-drawer" id="primary-navigation" data-nav-menu>
+          <a href="#home"><i class="fas fa-house" aria-hidden="true"></i> In&iacute;cio</a>
+          <a href="#about"><i class="fas fa-code" aria-hidden="true"></i> Sobre</a>
+          <a href="services.html"><i class="fas fa-briefcase" aria-hidden="true"></i> <span>Servi<span class="nav-label__accent">&ccedil;</span>os</span></a>
+          <a href="projects.html"><i class="fas fa-folder-open" aria-hidden="true"></i> Projetos</a>
+          <a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
+        </div>
+      </div>
+    </nav>
     </header>
 
     <button id="theme-toggle" aria-label="Alternar tema">
@@ -164,6 +153,16 @@
                             </iframe>
                         </div>
                     </article>
+                    <article class="map-card map-card--wide">
+                        <div class="map-container">
+                            <iframe
+                                title="Mapa da cidade de S&atilde;o Paulo - capital"
+                                src="https://www.google.com/maps?q=S%C3%A3o%20Paulo%2C%20SP%2C%20Brasil&amp;z=10&amp;output=embed"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -171,51 +170,19 @@
         <section id="moreOptions" class="section more">
             <h2 data-aos="fade-up">Mais op&ccedil;&otilde;es</h2>
             <div class="moreOptions-buttons">
-
-                <a href="#about" class="moreOption-button" data-aos="fade-right">
-                    <i class="fas fa-code"></i> Sobre
+                <a href="repositories.html" class="moreOption-button" data-aos="fade-up">
+                    <i class="fab fa-github" aria-hidden="true"></i> Reposit&oacute;rios
                 </a>
-
-                <a href="#repositories" class="moreOption-button" data-aos="fade-left">
-                    <i class="fab fa-github"></i> Reposit&oacute;rios
+                <a href="certifications.html" class="moreOption-button" data-aos="fade-up">
+                    <i class="fas fa-certificate" aria-hidden="true"></i> Certifica&ccedil;&otilde;es
                 </a>
-
-                <a href="certifications.html" class="moreOption-button" data-aos="fade-right">
-                    <i class="fas fa-certificate"></i> Certifica&ccedil;&otilde;es
+                <a href="partners.html" class="moreOption-button" data-aos="fade-up">
+                    <i class="fas fa-handshake" aria-hidden="true"></i> Parceiros
                 </a>
-
-                <!-- MANUTENÇÃo
-                <a href="#experience" class="moreOption-button" data-aos="fade-left">
-                    <i class="fas fa-briefcase"></i> Experience
-                </a>
-
-                <a href="#resume" class="moreOption-button" data-aos="zoom-in">
-                    <i class="fas fa-file-pdf"></i> Resume
-                </a>
-                -->
-
-                <a href="projects.html" class="moreOption-button" data-aos="zoom-in">
-                    <i class="fas fa-folder-open"></i> Projetos
-                </a>
-
             </div>
         </section>
 
-        <section id="repositories" class="section repositories" aria-labelledby="repositories-title">
-            <div class="repositories-content">
-                <div class="repositories-header" data-aos="fade-up">
-                    <span class="repositories-kicker">GitHub</span>
-                    <h2 id="repositories-title">Reposit&oacute;rios</h2>
-                    <p>Uma sele&ccedil;&atilde;o de reposit&oacute;rios e projetos em destaque, com links para c&oacute;digo quando p&uacute;blico e site quando dispon&iacute;vel.</p>
-                </div>
 
-                <div id="repo-list" class="repo-grid" aria-live="polite" data-aos="fade-up">
-                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
-                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
-                    <article class="repo-card repo-card--loading" aria-hidden="true"></article>
-                </div>
-            </div>
-        </section>
 
         <!-- MANUTENÇÂO
         <section id="experience" class="section experience">
@@ -322,7 +289,6 @@
 
     <script src="components/layout/footer/footer.js"></script> <script src="js/script.js"></script>
     <script src="js/colorCustomizer.js"></script>
-    <script src="components/repositories/repositoriesGitHub.js" defer></script>
 </body>
 
 </html>

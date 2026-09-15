@@ -4,32 +4,22 @@ function loadHeader() {
   header.id = "header";
 
   header.innerHTML = `
-    <nav class="navbar" role="navigation" aria-label="Navega&ccedil;&atilde;o principal">
+    <nav class="navbar" aria-label="Navega&ccedil;&atilde;o principal">
       <a class="nav-brand" href="${getLink("#home")}" aria-label="Ir para o in&iacute;cio">ADML</a>
-
       <div class="nav-actions">
-        <div class="nav-primary" aria-label="Navega&ccedil;&atilde;o prim&aacute;ria">
-          <a href="${getLink("#home")}"><i class="fas fa-house"></i> In&iacute;cio</a>
-          <a href="${getLink("#about")}"><i class="fas fa-code"></i> Sobre</a>
-          <a href="${getLink("#contact")}"><i class="fas fa-envelope"></i> Contato</a>
-        </div>
-
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
           <span></span>
           <span></span>
           <span></span>
         </button>
-
         <div class="nav-drawer" id="primary-navigation" data-nav-menu>
-          <a class="drawer-primary" href="${getLink("#home")}" aria-label="Ir para a se&ccedil;&atilde;o inicial"><i class="fas fa-house"></i> In&iacute;cio</a>
-          <a class="drawer-primary" href="${getLink("#about")}" aria-label="Ir para a se&ccedil;&atilde;o sobre"><i class="fas fa-code"></i> Sobre</a>
-          <a class="drawer-primary" href="${getLink("#contact")}" aria-label="Ir para a se&ccedil;&atilde;o de contato"><i class="fas fa-envelope"></i> Contato</a>
-          <a href="${getLink("#repositories")}" aria-label="Ir para a se&ccedil;&atilde;o de reposit&oacute;rios"><i class="fab fa-github"></i> Reposit&oacute;rios</a>
-          <a href="certifications.html" aria-label="Ir para a p&aacute;gina de certifica&ccedil;&otilde;es"><i class="fas fa-certificate"></i> Certifica&ccedil;&otilde;es</a>
-          <a href="projects.html" aria-label="Ir para a p&aacute;gina de projetos"><i class="fas fa-folder-open"></i> Projetos</a>
+          <a href="${getLink("#home")}"><i class="fas fa-house" aria-hidden="true"></i> In&iacute;cio</a>
+          <a href="${getLink("#about")}"><i class="fas fa-code" aria-hidden="true"></i> Sobre</a>
+          <a href="services.html"><i class="fas fa-briefcase" aria-hidden="true"></i> <span>Servi<span class="nav-label__accent">&ccedil;</span>os</span></a>
+          <a href="projects.html"><i class="fas fa-folder-open" aria-hidden="true"></i> Projetos</a>
+          <a href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
         </div>
       </div>
-
     </nav>
   `;
 

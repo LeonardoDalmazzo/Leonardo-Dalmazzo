@@ -1,0 +1,360 @@
+.services-page {
+    --services-surface: #f5f8f8;
+    --services-muted: #536261;
+    --services-border: rgba(var(--color-main-rgb), 0.18);
+    --services-radius: 1rem;
+    --services-gap: clamp(1.25rem, 3vw, 2.5rem);
+
+    width: min(100%, 76rem);
+    margin-inline: auto;
+    padding: 6rem 1rem 4rem;
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+body.dark .services-page {
+    --services-surface: #1d282b;
+    --services-muted: #b8c3c1;
+    --services-border: rgba(255, 255, 255, 0.16);
+
+    color: var(--color-text-dark);
+}
+
+.services-page *,
+.services-page *::before,
+.services-page *::after {
+    min-width: 0;
+}
+
+.services-page h1,
+.services-page h2,
+.services-page h3,
+.services-page p {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.services-page h1,
+.services-page h2,
+.services-page h3 {
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.services-page h1 {
+    max-width: 19ch;
+    margin-block: 0.75rem 1.25rem;
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+    font-weight: 750;
+    letter-spacing: -0.04em;
+}
+
+.services-page h2 {
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.services-page h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+main.services-page a {
+    color: inherit;
+}
+
+.services-page a:focus-visible,
+.services-page summary:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+}
+
+.services-breadcrumb {
+    display: flex;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+    color: var(--services-muted);
+    font-size: 0.85rem;
+}
+
+.services-breadcrumb a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.services-hero {
+    display: grid;
+    gap: var(--services-gap);
+    align-items: center;
+}
+
+.services-eyebrow {
+    color: var(--services-muted);
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.services-hero__lead {
+    max-width: 58ch;
+    color: var(--services-muted);
+    font-size: 1.05rem;
+}
+
+.services-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.services-page .service-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid var(--color-main);
+    border-radius: 0.5rem;
+    color: var(--color-text-on-main);
+    background: var(--color-main);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 180ms ease;
+}
+
+.services-page .service-button:hover {
+    box-shadow: 0 0 0 3px var(--services-border);
+}
+
+.services-page .service-button:focus-visible {
+    outline-color: var(--color-text);
+}
+
+body.dark .services-page .service-button:focus-visible {
+    outline-color: var(--color-text-dark);
+}
+
+.services-page .service-button--secondary {
+    color: inherit;
+    background: transparent;
+    border-color: var(--services-border);
+}
+
+.services-guide {
+    padding: var(--services-gap);
+    border: 1px solid var(--services-border);
+    border-radius: var(--services-radius);
+    background: var(--services-surface);
+}
+
+.services-guide h2 {
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+}
+
+.services-guide ol {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: decimal;
+}
+
+.services-guide li {
+    padding-left: 0.35rem;
+}
+
+.services-guide li::marker {
+    font-weight: 700;
+}
+
+.services-guide strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-weight: 650;
+}
+
+.services-guide p {
+    color: var(--services-muted);
+    font-size: 0.9rem;
+}
+
+.services-nav {
+    margin-block: 2.5rem;
+    padding-block: 1.5rem;
+    border-block: 1px solid var(--services-border);
+    scroll-margin-top: 6rem;
+}
+
+.services-nav p {
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 650;
+}
+
+.services-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.services-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--services-border);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.services-nav a:hover {
+    background: var(--services-surface);
+}
+
+.services-catalog {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.service-category {
+    display: grid;
+    gap: var(--services-gap);
+    padding: var(--services-gap);
+    border: 1px solid var(--services-border);
+    border-radius: var(--services-radius);
+    scroll-margin-top: 6rem;
+}
+
+.service-category__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+    border-radius: 0.65rem;
+    background: var(--services-surface);
+    font-size: 1.1rem;
+}
+
+.service-category__intro > p:not(.services-eyebrow) {
+    margin-top: 0.8rem;
+    color: var(--services-muted);
+    font-size: 0.95rem;
+}
+
+.service-category__intro .services-eyebrow {
+    margin-bottom: 0.6rem;
+}
+
+.service-category__intro .service-button {
+    margin-top: 1.25rem;
+}
+
+.service-list {
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.service-list li {
+    padding-top: 1rem;
+    border-top: 1px solid var(--services-border);
+}
+
+.service-list p {
+    margin-top: 0.5rem;
+    color: var(--services-muted);
+    font-size: 0.9rem;
+}
+
+.services-faq {
+    max-width: 54rem;
+    margin: 3.5rem auto;
+    scroll-margin-top: 6rem;
+}
+
+.services-faq h2 {
+    margin-bottom: 1.5rem;
+}
+
+.services-faq details {
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--services-border);
+}
+
+.services-faq summary {
+    min-height: 44px;
+    align-content: center;
+    padding-right: 0.75rem;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.services-faq details p {
+    max-width: 70ch;
+    margin-top: 0.75rem;
+    color: var(--services-muted);
+}
+
+.services-closing {
+    padding: var(--services-gap);
+    border: 1px solid var(--services-border);
+    border-radius: var(--services-radius);
+    background: var(--services-surface);
+}
+
+.services-closing p {
+    max-width: 65ch;
+    margin-top: 0.8rem;
+    color: var(--services-muted);
+}
+
+@media (min-width: 640px) {
+    .services-page {
+        padding-inline: 1.5rem;
+    }
+
+    .service-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-page {
+        padding-top: 7.5rem;
+    }
+
+    .services-hero {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    }
+
+    .service-category {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services-page .service-button {
+        transition: none;
+    }
+}
