@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Repositórios e projetos de Leonardo Dalmazzo. Explore os trabalhos, os sites disponíveis e os códigos públicos no GitHub." />
+    <title>Repositórios | Leonardo Dalmazzo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sections/secondaryPages.css" />
+</head>
+<body>
+    <script src="components/layout/header/header.js" defer></script>
+    <main class="content-page repositories">
+        <div class="repositories-content">
+            <header class="content-page__header repositories-header">
+                <span class="repositories-kicker">GitHub</span>
+                <h1>Repositórios</h1>
+                <p>Explore meus projetos, conheça os sites disponíveis e acesse o código dos repositórios públicos.</p>
+            </header>
+            <div id="repo-list" class="repo-grid" aria-live="polite" aria-label="Lista de repositórios">
+                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+            </div>
+            <noscript>
+                <p class="content-panel">Veja os repositórios no <a href="https://github.com/LeonardoDalmazzo" target="_blank" rel="noopener noreferrer">perfil de Leonardo Dalmazzo no GitHub</a>.</p>
+            </noscript>
+        </div>
+    </main>
+    <script src="components/layout/footer/footer.js" defer></script>
+    <script src="js/colorCustomizer.js" defer></script>
+    <script src="components/repositories/repositoriesGitHub.js" defer></script>
+</body>
+</html>

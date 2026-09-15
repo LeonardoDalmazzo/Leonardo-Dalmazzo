@@ -18,6 +18,8 @@
     --font-main: 'Segoe UI', sans-serif;
     --font-display: 'GraffitiStyle', 'Segoe UI', sans-serif;
     --font-nav: 'GraffitiMenu', 'Segoe UI', sans-serif;
+    --nav-group-gap: 1.5rem;
+    --nav-accent-size: 1.5em;
 
     --color-main: #0f4c5c;
     --color-main-rgb: 15, 76, 92;
