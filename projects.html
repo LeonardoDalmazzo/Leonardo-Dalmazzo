@@ -24,66 +24,122 @@
     <!-- Header secundário de filtros -->
     <header class="showcase-header projects-header">
       <h2>Projetos</h2>
-      <p>Projetos selecionados do portf&oacute;lio, com tecnologias, categoria e pr&eacute;via visual.</p>
+      <p>Projetos selecionados do portf&oacute;lio, organizados por tipo de entrega e pr&eacute;via visual.</p>
       <nav class="showcase-filters projects-filters" aria-label="Filtros de projetos">
         <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="front-end">Front-end</button>
-        <button class="filter-btn" data-filter="back-end">Back-end</button>
-        <button class="filter-btn" data-filter="dados">Dados</button>
-        <button class="filter-btn" data-filter="design">Design</button>
-        <button class="filter-btn" data-filter="tools">Ferramentas</button>
+        <button class="filter-btn" data-filter="sites">Sites</button>
+        <button class="filter-btn" data-filter="landing-pages">Landing pages</button>
+        <button class="filter-btn" data-filter="apps">Apps</button>
+        <button class="filter-btn" data-filter="apis">APIs</button>
+        <button class="filter-btn" data-filter="ferramentas">Ferramentas</button>
       </nav>
     </header>
 
     <!-- Lista de projetos -->
-    <section class="showcase-grid projects-grid" id="projects-list" data-showcase-gallery>
+    <section class="showcase-grid projects-grid" id="projects-list" data-showcase-gallery data-showcase-autoplay="manual">
 
-      <!-- Exemplo de card -->
-      <article class="showcase-card project-card" data-category='["front-end"]'>
+      <article class="showcase-card project-card" data-category='["sites","landing-pages"]' data-showcase-order="6">
         <div class="showcase-card__media project-img" data-showcase-media>
-          <img src="assets/imgs/projects/leonardodalmazzo.github.io_firstPortfolio_.png" alt="Captura de tela do projeto">
-        </div>
-        <div class="showcase-card__content project-info">
-          <h3 data-showcase-title>Meu primeiro portf&oacute;lio</h3>
-          <p class="project-tech" data-showcase-subtitle>HTML, CSS, JS</p>
-          <p class="project-desc">Site responsivo criado com princ&iacute;pios mobile-first.</p>
-          <time class="project-date" datetime="2024">2024</time>
-        </div>
-      </article>
-
-      <article class="showcase-card project-card" data-category='["design"]'>
-        <div class="showcase-card__media project-img" data-showcase-media>
-          <img src="assets/imgs/projects/leonardodalmazzo.github.io_fiancailles_ (1).png" alt="Captura de tela do projeto">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (1).png" alt="Página do projeto Fiançailles em desktop">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (2).png" alt="Página do projeto Fiançailles em desktop">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (3).png" alt="Página do projeto Fiançailles em desktop">
+          <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (4).png" alt="Página completa do projeto Fiançailles em desktop">
         </div>
         <div class="showcase-card__content project-info">
           <h3 data-showcase-title>Fiançailles</h3>
-          <p class="project-tech" data-showcase-subtitle>HTML, CSS, JS</p>
-          <p class="project-desc">Site responsivo criado com princ&iacute;pios mobile-first.</p>
+          <p class="project-tech" data-showcase-subtitle>HTML5, CSS3, W3.CSS</p>
+          <p class="project-desc">Site institucional para celebra&ccedil;&otilde;es de casamento, com servi&ccedil;os, ritos, galeria, depoimentos e contato.</p>
+          <a class="project-cta" href="https://leonardodalmazzo.github.io/fiancailles/" target="_blank" rel="noopener noreferrer">
+            Confira a p&aacute;gina <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
           <time class="project-date" datetime="2024">2024</time>
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["back-end"]'>
+      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="5">
         <div class="showcase-card__media project-img" data-showcase-media>
-          <img src="assets/imgs/projects/leonardodalmazzo.github.io_dreamoto_ (1).png" alt="Captura de tela do projeto">
+          <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (01).png" alt="Tela inicial do sistema financeiro 3Finances">
+          <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (02).png" alt="Painel do sistema financeiro 3Finances">
+          <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (03).png" alt="Tela de configurações do sistema financeiro 3Finances">
+          <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (04).png" alt="Tela de login do sistema financeiro 3Finances">
         </div>
         <div class="showcase-card__content project-info">
-          <h3 data-showcase-title>Dreamoto</h3>
-          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET, SQL</p>
-          <p class="project-desc">API back-end para autentica&ccedil;&atilde;o e opera&ccedil;&otilde;es CRUD.</p>
-          <time class="project-date" datetime="2023">2023</time>
+          <h3 data-showcase-title>3Finances</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET Core, Blazor Server, EF Core, PostgreSQL, SQLite, Identity</p>
+          <p class="project-desc">Aplica&ccedil;&atilde;o de organiza&ccedil;&atilde;o financeira com painel, lan&ccedil;amentos, categorias, pagamentos, prefer&ecirc;ncias e autentica&ccedil;&atilde;o.</p>
+          <a class="project-cta" href="https://threefinances.onrender.com/Account/Login?ReturnUrl=%2F" target="_blank" rel="noopener noreferrer">
+            Confira a p&aacute;gina <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <time class="project-date" datetime="2025">2025</time>
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["tools","dados"]'>
+      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="3">
         <div class="showcase-card__media project-img" data-showcase-media>
-          <img src="assets/imgs/projects/leonardodalmazzo.github.io_schedule_.png" alt="Schedule - captura de tela do projeto">
+          <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (01).png" alt="Painel do sistema Controle de Acesso DER">
+          <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (02).png" alt="Tela do sistema Controle de Acesso DER">
+          <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (03).png" alt="Tela do sistema Controle de Acesso DER">
+          <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (04).png" alt="Tela do sistema Controle de Acesso DER">
         </div>
         <div class="showcase-card__content project-info">
-          <h3 data-showcase-title>Schedule</h3>
-          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET, SQL</p>
-          <p class="project-desc">API back-end para autentica&ccedil;&atilde;o e opera&ccedil;&otilde;es CRUD.</p>
-          <time class="project-date" datetime="2023">2023</time>
+          <h3 data-showcase-title>Controle de Acesso DER</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET Core, Blazor Server, EF Core, SQLite</p>
+          <p class="project-desc">Aplica&ccedil;&atilde;o interna de portaria para registrar acessos de pessoas e ve&iacute;culos, com buscas, cadastros e painel operacional.</p>
+          <span class="project-private" role="note" aria-label="Projeto privado: acesso restrito por privacidade e LGPD."><i class="fas fa-lock" aria-hidden="true"></i> Acesso privado (LGPD)</span>
+          <time class="project-date" datetime="2026">2026</time>
+        </div>
+      </article>
+
+      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="2">
+        <div class="showcase-card__media project-img" data-showcase-media>
+          <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (01).png" alt="Painel do sistema de inventário patrimonial DER-CGR10">
+          <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (02).png" alt="Tela do sistema de inventário patrimonial DER-CGR10">
+          <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (03).png" alt="Tela do sistema de inventário patrimonial DER-CGR10">
+          <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (04).png" alt="Tela do sistema de inventário patrimonial DER-CGR10">
+          <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (05).png" alt="Tela do sistema de inventário patrimonial DER-CGR10">
+        </div>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Invent&aacute;rio Patrimonial DER-CGR10</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET Core, Blazor Server, EF Core, SQLite, Identity</p>
+          <p class="project-desc">Aplica&ccedil;&atilde;o interna para centralizar o invent&aacute;rio patrimonial, com cadastros, consultas, relat&oacute;rios, autentica&ccedil;&atilde;o e n&iacute;veis de acesso.</p>
+          <span class="project-private" role="note" aria-label="Projeto privado: acesso restrito por privacidade e LGPD."><i class="fas fa-lock" aria-hidden="true"></i> Acesso privado (LGPD)</span>
+          <time class="project-date" datetime="2026">2026</time>
+        </div>
+      </article>
+
+      <article class="showcase-card project-card" data-category='["sites"]' data-showcase-order="4">
+        <div class="showcase-card__media project-img" data-showcase-media>
+          <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (01).png" alt="Página inicial do projeto Podologia para Todos">
+          <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (02).png" alt="Página do projeto Podologia para Todos">
+          <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (03).png" alt="Página do projeto Podologia para Todos">
+          <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (04).png" alt="Versão mobile do projeto Podologia para Todos">
+        </div>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Podologia para Todos</h3>
+          <p class="project-tech" data-showcase-subtitle>C#, ASP.NET Core, Blazor Server, EF Core, PostgreSQL, Identity, Docker</p>
+          <p class="project-desc">Plataforma social que conecta pacientes e profissionais de podologia, com triagem, atendimentos, chat e perfis de acesso.</p>
+          <a class="project-cta" href="https://podologia-para-todos.onrender.com/" target="_blank" rel="noopener noreferrer">
+            Confira a p&aacute;gina <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <time class="project-date" datetime="2026">2026</time>
+        </div>
+      </article>
+
+      <article class="showcase-card project-card" data-category='["sites"]' data-showcase-order="1">
+        <div class="showcase-card__media project-img" data-showcase-media>
+          <img src="assets/imgs/projects/www.loctubo.com.br/www.loctubo.com.br_ (01).png" alt="Página inicial do site Loctubo em desktop">
+          <img src="assets/imgs/projects/www.loctubo.com.br/www.loctubo.com.br_ (02).png" alt="Página inicial do site Loctubo em mobile">
+          <img src="assets/imgs/projects/www.loctubo.com.br/www.loctubo.com.br_ (03).png" alt="Página completa do site Loctubo em desktop">
+          <img src="assets/imgs/projects/www.loctubo.com.br/www.loctubo.com.br_ (04).png" alt="Página Sobre do site Loctubo em mobile">
+        </div>
+        <div class="showcase-card__content project-info">
+          <h3 data-showcase-title>Loctubo</h3>
+          <p class="project-tech" data-showcase-subtitle>HTML5, CSS3, JavaScript, SEO local</p>
+          <p class="project-desc">Site institucional e cat&aacute;logo digital de loca&ccedil;&atilde;o, com busca, filtros, or&ccedil;amento pelo WhatsApp, campanhas e SEO local.</p>
+          <a class="project-cta" href="https://www.loctubo.com.br/" target="_blank" rel="noopener noreferrer">
+            Confira a p&aacute;gina <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <time class="project-date" datetime="2026">2026</time>
         </div>
       </article>
 

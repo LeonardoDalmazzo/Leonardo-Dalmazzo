@@ -3,3 +3,56 @@
 .projects .showcase-header {
   width: min(100%, 46rem);
 }
+
+.projects .project-cta {
+  width: 100%;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  color: var(--color-text-on-main);
+  background: var(--color-main);
+  border: 1px solid var(--color-main);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.projects .project-cta:hover,
+.projects .project-cta:focus-visible {
+  color: var(--color-main);
+  background: transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+.projects .project-private {
+  width: 100%;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem;
+  color: var(--color-text);
+  background: rgba(var(--color-main-rgb), 0.08);
+  border: 1px solid rgba(var(--color-main-rgb), 0.22);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+body.dark .projects .project-private {
+  color: var(--color-text-dark);
+  background: rgba(var(--color-main-rgb), 0.14);
+}
