@@ -310,18 +310,46 @@ body.dark .showcase-header p {
 
 .showcase-modal__inner {
   width: min(100%, 1000px);
+  --showcase-modal-image-max-height: min(68dvh, 80vh);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
 
-.showcase-modal__image {
-  max-width: 100%;
-  max-height: min(68dvh, 80vh);
-  object-fit: contain;
+.showcase-modal__image-viewport {
+  width: 100%;
+  max-height: var(--showcase-modal-image-max-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.28);
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-modal__image {
+  max-width: 100%;
+  max-height: var(--showcase-modal-image-max-height);
+  display: block;
+}
+
+.showcase-modal.is-project-gallery.is-scrollable .showcase-modal__image-viewport {
+  align-items: flex-start;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.showcase-modal.is-project-gallery.is-scrollable .showcase-modal__image {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+.showcase-modal__image-viewport:focus-visible {
+  outline: 3px solid var(--color-main);
+  outline-offset: 3px;
 }
 
 .showcase-modal__caption {

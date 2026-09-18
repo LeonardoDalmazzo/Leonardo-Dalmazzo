@@ -1,5 +1,6 @@
 (function () {
-  const AUTOPLAY_INTERVAL = 4000;
+  const AUTOPLAY_INTERVAL = 9000;
+  const TALL_IMAGE_RATIO = 1.8;
 
   function parseCategories(rawCategories) {
     if (!rawCategories) return [];
@@ -51,7 +52,9 @@
     modal.setAttribute("aria-label", "Visualizacao ampliada");
     modal.innerHTML = `
       <div class="showcase-modal__inner">
-        <img class="showcase-modal__image" src="" alt="">
+        <div class="showcase-modal__image-viewport" tabindex="-1" aria-label="Imagem ampliada. Role para visualizar a imagem completa.">
+          <img class="showcase-modal__image" src="" alt="">
+        </div>
         <div class="showcase-modal__caption"></div>
         <div class="showcase-modal__controls">
           <button class="showcase-modal__prev" type="button" aria-label="Imagem anterior">
@@ -72,19 +75,34 @@
   function initModal() {
     const modal = getSharedModal();
     const modalImage = modal.querySelector(".showcase-modal__image");
+    const modalImageViewport = modal.querySelector(".showcase-modal__image-viewport");
     const modalCaption = modal.querySelector(".showcase-modal__caption");
     const previousButton = modal.querySelector(".showcase-modal__prev");
     const nextButton = modal.querySelector(".showcase-modal__next");
     const closeButton = modal.querySelector(".showcase-modal__close");
     let currentImages = [];
     let currentIndex = 0;
+    let lastTrigger = null;
+    let isProjectGallery = false;
+
+    modalImage.addEventListener("load", () => {
+      const isTallProjectImage = isProjectGallery
+        && modalImage.naturalHeight / modalImage.naturalWidth >= TALL_IMAGE_RATIO;
+
+      modal.classList.toggle("is-scrollable", isTallProjectImage);
+      modalImageViewport.tabIndex = isTallProjectImage ? 0 : -1;
+    });
 
     function updateModal() {
       const imageData = currentImages[currentIndex];
       if (!imageData) return;
 
+      modal.classList.remove("is-scrollable");
+      modalImageViewport.tabIndex = -1;
       modalImage.src = imageData.src;
       modalImage.alt = imageData.alt || imageData.title || "Imagem ampliada";
+      modalImageViewport.scrollTop = 0;
+      modalImageViewport.scrollLeft = 0;
       modalCaption.replaceChildren();
 
       const title = document.createElement("strong");
@@ -103,6 +121,7 @@
     function closeModal() {
       modal.classList.remove("active");
       modalImage.removeAttribute("src");
+      lastTrigger?.focus();
     }
 
     function showNextImage() {
@@ -150,9 +169,12 @@
     });
 
     return {
-      open(images, index = 0) {
+      open(images, index = 0, trigger = null, options = {}) {
         currentImages = images;
         currentIndex = index;
+        lastTrigger = trigger;
+        isProjectGallery = Boolean(options.isProjectGallery);
+        modal.classList.toggle("is-project-gallery", isProjectGallery);
         updateModal();
         modal.classList.add("active");
         closeButton.focus();
@@ -164,7 +186,7 @@
     return card.querySelector(selector)?.textContent.trim() || fallback;
   }
 
-  function initCardCarousel(card, modalApi) {
+  function initCardCarousel(card, modalApi, options = {}) {
     const media = card.querySelector("[data-showcase-media], .card-img, .project-img");
 
     if (!media) return;
@@ -172,6 +194,8 @@
     const images = Array.from(media.querySelectorAll("img"));
     const title = getCardText(card, "[data-showcase-title]", getCardText(card, "h3"));
     const subtitle = getCardText(card, "[data-showcase-subtitle]", getCardText(card, ".sub-title, .project-tech"));
+    const isProjectGallery = Boolean(card.closest(".projects"));
+    const autoplay = options.autoplay !== false;
     let currentIndex = 0;
     let interval = null;
 
@@ -185,7 +209,7 @@
     }
 
     function startTimer() {
-      if (images.length <= 1) return;
+      if (!autoplay || images.length <= 1) return;
       interval = window.setInterval(() => showImage(currentIndex + 1), AUTOPLAY_INTERVAL);
     }
 
@@ -199,6 +223,9 @@
     }
 
     showImage(0);
+    media.tabIndex = 0;
+    media.setAttribute("role", "button");
+    media.setAttribute("aria-label", `Abrir galeria de imagens: ${title}`);
 
     if (images.length > 1) {
       const controls = document.createElement("div");
@@ -219,27 +246,40 @@
         resetTimer();
       });
 
-      card.addEventListener("mouseenter", stopTimer);
-      card.addEventListener("mouseleave", startTimer);
-      card.addEventListener("focusin", stopTimer);
-      card.addEventListener("focusout", startTimer);
-      startTimer();
+      if (autoplay) {
+        card.addEventListener("mouseenter", stopTimer);
+        card.addEventListener("mouseleave", startTimer);
+        card.addEventListener("focusin", stopTimer);
+        card.addEventListener("focusout", startTimer);
+        startTimer();
+      }
     }
 
-    media.addEventListener("click", () => {
+    function openModal() {
       modalApi.open(images.map((image) => ({
         src: image.currentSrc || image.src,
         alt: image.alt,
         title,
         subtitle,
-      })), currentIndex);
+      })), currentIndex, media, { isProjectGallery });
+    }
+
+    media.addEventListener("click", openModal);
+    media.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openModal();
     });
   }
 
   function initGallery(gallery, modalApi) {
     const section = gallery.closest(".showcase-page") || document;
     const filterButtons = Array.from(section.querySelectorAll("[data-filter]"));
-    const cards = Array.from(gallery.querySelectorAll("[data-category]"));
+    const cards = Array.from(gallery.querySelectorAll("[data-category]"))
+      .sort((firstCard, secondCard) => Number(firstCard.dataset.showcaseOrder || 0) - Number(secondCard.dataset.showcaseOrder || 0));
+    const autoplay = gallery.dataset.showcaseAutoplay !== "manual";
+
+    cards.forEach((card) => gallery.appendChild(card));
 
     function applyFilter(filterValue) {
       const selectedFilter = normalizeCategory(filterValue || "all");
@@ -267,7 +307,7 @@
       button.addEventListener("click", () => applyFilter(button.dataset.filter));
     });
 
-    cards.forEach((card) => initCardCarousel(card, modalApi));
+    cards.forEach((card) => initCardCarousel(card, modalApi, { autoplay }));
     applyFilter(filterButtons.find((button) => button.classList.contains("active"))?.dataset.filter || "all");
   }
 
