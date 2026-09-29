@@ -1,0 +1,86 @@
+/* Complements the shared services and showcase components. */
+.landing-page {
+    --landing-section-space: calc(var(--spacing) * 3.5);
+    --landing-content-gap: calc(var(--spacing) * 1.5);
+}
+
+.skip-link {
+    position: fixed;
+    top: var(--spacing);
+    left: var(--spacing);
+    z-index: 2000;
+    padding: var(--spacing);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 2px solid currentColor;
+    border-radius: calc(var(--spacing) * 0.5);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+body.dark .skip-link {
+    color: var(--color-text-dark);
+    background: var(--color-bg-dark);
+}
+
+.landing-page section[id],
+.landing-page [tabindex="-1"] {
+    scroll-margin-top: calc(var(--spacing) * 6);
+}
+
+.landing-section {
+    margin-block: var(--landing-section-space);
+}
+
+.landing-section > h2,
+.landing-section > p {
+    margin-bottom: var(--landing-content-gap);
+}
+
+.landing-page .showcase-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--landing-content-gap);
+}
+
+.landing-page .showcase-card__media {
+    cursor: default;
+}
+
+.landing-page .showcase-card__media img {
+    object-position: top;
+}
+
+.landing-page .showcase-card__content {
+    text-align: left;
+    padding: var(--landing-content-gap);
+    gap: var(--spacing);
+}
+
+.landing-page .services-guide li + li {
+    margin-top: calc(var(--spacing) * 0.25);
+}
+
+.landing-page .services-closing {
+    margin-top: var(--landing-section-space);
+}
+
+@media (min-width: 640px) {
+    .landing-page .showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .landing-page .showcase-card:hover,
+    .landing-page .showcase-card:focus-within {
+        transform: none;
+    }
+}

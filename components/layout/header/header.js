@@ -1,4 +1,7 @@
 // components/layout/header/header.js
+// Resolve paths from this shared script, including pages in nested directories.
+const siteRootUrl = new URL("../../../", document.currentScript.src);
+
 function loadHeader() {
   const header = document.createElement("header");
   header.id = "header";
@@ -15,15 +18,20 @@ function loadHeader() {
         <div class="nav-drawer" id="primary-navigation" data-nav-menu>
           <a href="${getLink("#home")}"><i class="fas fa-house" aria-hidden="true"></i> In&iacute;cio</a>
           <a href="${getLink("#about")}"><i class="fas fa-code" aria-hidden="true"></i> Sobre</a>
-          <a href="services.html"><i class="fas fa-briefcase" aria-hidden="true"></i> <span>Servi<span class="nav-label__accent">&ccedil;</span>os</span></a>
-          <a href="projects.html"><i class="fas fa-folder-open" aria-hidden="true"></i> Projetos</a>
+          <a href="${getLink("services.html")}"><i class="fas fa-briefcase" aria-hidden="true"></i> <span>Servi<span class="nav-label__accent">&ccedil;</span>os</span></a>
+          <a href="${getLink("projects.html")}"><i class="fas fa-folder-open" aria-hidden="true"></i> Projetos</a>
           <a href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
         </div>
       </div>
     </nav>
   `;
 
-  document.body.prepend(header);
+  const skipLink = document.querySelector(".skip-link");
+  if (skipLink) {
+    skipLink.after(header);
+  } else {
+    document.body.prepend(header);
+  }
 
   const themeButton = document.createElement("button");
   themeButton.id = "theme-toggle";
@@ -37,9 +45,14 @@ function loadHeader() {
   scrollTopButton.innerHTML = `<i class="fas fa-arrow-up"></i>`;
   document.body.appendChild(scrollTopButton);
 
-  function getLink(hash) {
-    const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
-    return isIndex ? hash : `index.html${hash}`;
+  function getLink(path) {
+    const homeUrl = new URL("index.html", siteRootUrl);
+    const isHome = window.location.pathname === homeUrl.pathname
+      || window.location.pathname === siteRootUrl.pathname;
+    if (path.startsWith("#")) {
+      return isHome ? path : `${homeUrl.href}${path}`;
+    }
+    return new URL(path, siteRootUrl).href;
   }
 
   const bodyElement = document.body;
@@ -111,8 +124,9 @@ function loadHeader() {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && navMenu?.classList.contains("is-open")) {
       setMenuState(false);
+      menuToggleBtn?.focus();
     }
   });
 
