@@ -4,6 +4,15 @@
   width: min(100%, 46rem);
 }
 
+.projects .showcase-header p + p {
+  margin-top: var(--spacing);
+}
+
+.projects .showcase-header p a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .projects .project-cta {
   width: 100%;
   min-height: 2.75rem;
