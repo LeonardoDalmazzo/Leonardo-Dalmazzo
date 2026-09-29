@@ -102,6 +102,8 @@ npx http-server .  # (ou use Live Server no VSCode)
 
 ## 🛠️ Status do Projeto
 
+O domínio de produção é [leonardodalmazzo.com](https://leonardodalmazzo.com/). Para gerar e publicar o pacote estático na HostGator, consulte [o guia de deploy](docs/deploy.md). O histórico de integração e validação das novas páginas está em [SEO e páginas comerciais](docs/seo-landing-pages.md).
+
 **Leonardo Dalmazzo | Portfolio & Blog de Repositórios GitHub**
 
 | Status        | Descrição                                                                 |
