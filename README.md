@@ -62,7 +62,6 @@ Este site foi desenvolvido para apresentar de maneira elegante e funcional:
 │   │   ├── homeSection.css
 │   │   ├── aboutSection.css
 │   │   ├── contactSection.css
-│   │   ├── moreOptionsSection.css
 │   │   ├── techStackSection.css
 │   │   ├── certificationsSection.css
 │   │   ├── experienceSection.css
