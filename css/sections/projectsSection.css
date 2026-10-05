@@ -1,9 +1,5 @@
 /* Page-specific tweaks for the shared showcase component. */
 
-.projects .showcase-header {
-  width: min(100%, 46rem);
-}
-
 .projects .showcase-header p + p {
   margin-top: var(--spacing);
 }

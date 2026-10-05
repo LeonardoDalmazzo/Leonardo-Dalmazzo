@@ -11,16 +11,17 @@ function loadHeader() {
       <a class="nav-brand" href="${getLink("#home")}" aria-label="Ir para o in&iacute;cio">ADML</a>
       <div class="nav-actions">
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
-          <span></span>
-          <span></span>
-          <span></span>
+          <i class="fas fa-bars" aria-hidden="true"></i>
+          <span>Menu</span>
         </button>
         <div class="nav-drawer" id="primary-navigation" data-nav-menu>
-          <a href="${getLink("#home")}"><i class="fas fa-house" aria-hidden="true"></i> In&iacute;cio</a>
-          <a href="${getLink("#about")}"><i class="fas fa-code" aria-hidden="true"></i> Sobre</a>
-          <a href="${getLink("services.html")}"><i class="fas fa-briefcase" aria-hidden="true"></i> <span>Servi<span class="nav-label__accent">&ccedil;</span>os</span></a>
-          <a href="${getLink("projects.html")}"><i class="fas fa-folder-open" aria-hidden="true"></i> Projetos</a>
-          <a href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
+          <a href="${getLink("services.html")}"><i class="fas fa-briefcase" aria-hidden="true"></i> Servi&ccedil;os</a>
+          <a href="${getLink("projects.html")}"><i class="fas fa-laptop-code" aria-hidden="true"></i> Projetos</a>
+          <a href="${getLink("#about")}"><i class="fas fa-user" aria-hidden="true"></i> Sobre</a>
+          <a href="${getLink("certifications.html")}"><i class="fas fa-award" aria-hidden="true"></i> Certifica&ccedil;&otilde;es</a>
+          <a href="${getLink("repositories.html")}"><i class="fab fa-github" aria-hidden="true"></i> Reposit&oacute;rios</a>
+          <a href="${getLink("partners.html")}"><i class="fas fa-handshake" aria-hidden="true"></i> Parceiros</a>
+          <a class="nav-contact" href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
         </div>
       </div>
     </nav>
@@ -68,7 +69,28 @@ function loadHeader() {
     navMenu.classList.toggle("is-open", isOpen);
     menuToggleBtn.setAttribute("aria-expanded", String(isOpen));
     menuToggleBtn.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    const icon = menuToggleBtn.querySelector("i");
+    icon.classList.toggle("fa-bars", !isOpen);
+    icon.classList.toggle("fa-xmark", isOpen);
   }
+
+  function updateCurrentLink() {
+    navMenu.querySelectorAll("a").forEach((link) => {
+      const target = new URL(link.href);
+      const homePath = new URL("index.html", siteRootUrl).pathname;
+      const currentPath = location.pathname === siteRootUrl.pathname ? homePath : location.pathname;
+      const isCurrent = target.pathname === currentPath && target.hash === location.hash;
+      if (isCurrent) {
+        link.setAttribute("aria-current", target.hash ? "location" : "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  updateCurrentLink();
+  window.addEventListener("hashchange", updateCurrentLink);
+  window.matchMedia("(min-width: 1180px)").addEventListener("change", () => setMenuState(false));
 
   function setThemeState(isDark) {
     bodyElement.classList.toggle("dark", isDark);
