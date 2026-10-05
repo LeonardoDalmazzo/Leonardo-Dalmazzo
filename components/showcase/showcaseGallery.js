@@ -2,33 +2,6 @@
   const AUTOPLAY_INTERVAL = 9000;
   const TALL_IMAGE_RATIO = 1.8;
 
-  function parseCategories(rawCategories) {
-    if (!rawCategories) return [];
-
-    try {
-      const parsedCategories = JSON.parse(rawCategories);
-
-      if (Array.isArray(parsedCategories)) {
-        return parsedCategories.map(normalizeCategory).filter(Boolean);
-      }
-
-      return splitCategories(parsedCategories);
-    } catch {
-      return splitCategories(rawCategories);
-    }
-  }
-
-  function splitCategories(value) {
-    return String(value)
-      .split(/\s*,\s*|\s+/)
-      .map(normalizeCategory)
-      .filter(Boolean);
-  }
-
-  function normalizeCategory(value) {
-    return String(value || "").toLowerCase().trim();
-  }
-
   function createIconButton(className, iconClass, label) {
     const button = document.createElement("button");
     button.className = className;
@@ -273,42 +246,12 @@
   }
 
   function initGallery(gallery, modalApi) {
-    const section = gallery.closest(".showcase-page") || document;
-    const filterButtons = Array.from(section.querySelectorAll("[data-filter]"));
     const cards = Array.from(gallery.querySelectorAll("[data-category]"))
       .sort((firstCard, secondCard) => Number(firstCard.dataset.showcaseOrder || 0) - Number(secondCard.dataset.showcaseOrder || 0));
     const autoplay = gallery.dataset.showcaseAutoplay !== "manual";
-
     cards.forEach((card) => gallery.appendChild(card));
-
-    function applyFilter(filterValue) {
-      const selectedFilter = normalizeCategory(filterValue || "all");
-
-      cards.forEach((card) => {
-        const categories = parseCategories(card.dataset.category);
-        const isVisible = selectedFilter === "all" || categories.includes(selectedFilter);
-
-        card.classList.toggle("is-hidden", !isVisible);
-
-        if (isVisible) {
-          card.classList.add("aos-animate");
-        }
-      });
-
-      filterButtons.forEach((button) => {
-        const isActive = normalizeCategory(button.dataset.filter) === selectedFilter;
-        button.classList.toggle("active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-    }
-
-    filterButtons.forEach((button) => {
-      button.type = "button";
-      button.addEventListener("click", () => applyFilter(button.dataset.filter));
-    });
-
     cards.forEach((card) => initCardCarousel(card, modalApi, { autoplay }));
-    applyFilter(filterButtons.find((button) => button.classList.contains("active"))?.dataset.filter || "all");
+    window.ShowcaseFilters.init(gallery);
   }
 
   document.addEventListener("DOMContentLoaded", () => {

@@ -11,10 +11,10 @@
 }
 
 .section h2 {
-    font-family: var(--font-nav);
+    font-family: var(--font-heading);
     font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.08;
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
     text-align: center;
     color: var(--color-main);
     margin-bottom: 1rem;

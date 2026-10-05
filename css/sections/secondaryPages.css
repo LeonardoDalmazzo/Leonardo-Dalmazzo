@@ -29,9 +29,10 @@ body.dark .content-page {
 .content-page__header h1 {
     margin: 0 0 0.8rem;
     color: var(--color-main);
-    font-family: var(--font-nav);
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
     overflow-wrap: anywhere;
     text-wrap: balance;
 }

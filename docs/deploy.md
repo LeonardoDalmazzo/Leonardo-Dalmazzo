@@ -1,16 +1,16 @@
 # Publicação na HostGator
 
-A release `v1.2.0` inclui as sete páginas comerciais/informativas, os componentes compartilhados, as correções de caminhos, o certificado de Postgres com Entity Framework e os novos arquivos de rastreamento.
+O pacote `v1.3.0` atualiza a tipografia, unifica o cabeçalho e substitui a seção Mais opções pelos links de navegação. Projetos, certificações e repositórios compartilham filtros responsivos; os repositórios também podem ser filtrados por stack, com C# / .NET em destaque. As páginas comerciais e os arquivos de rastreamento continuam incluídos.
 
 ## Gerar o pacote
 
 Na raiz do repositório, com Python 3 instalado:
 
 ```powershell
-python scripts/build-deploy.py 1.2.0
+py scripts/build-deploy.py 1.3.0
 ```
 
-O script cria `deploy/leonardo-dalmazzo-v1.2.0-hostgator.zip` e o arquivo `.zip.sha256` correspondente. Usa apenas a biblioteca padrão do Python, confere a integridade do ZIP e compara cada arquivo empacotado com sua origem. Não sobrescreve um pacote de release existente; para a próxima release, informe sua nova versão.
+O script cria `deploy/leonardo-dalmazzo-v1.3.0-hostgator.zip` e o arquivo `.zip.sha256` correspondente. No Windows, use o launcher `py`; em outros ambientes, use `python` ou `python3`. Usa apenas a biblioteca padrão do Python, confere a integridade do ZIP e compara cada arquivo empacotado com sua origem. Não sobrescreve um pacote de release existente; para a próxima release, informe sua nova versão.
 
 O ZIP contém os HTML da raiz, as pastas de páginas com `index.html`, `assets`, `components`, `css`, `js`, `robots.txt` e `sitemap.xml`. Não inclui `.git`, instruções de agentes, scripts de desenvolvimento, documentação nem os ZIPs anteriores. Os arquivos ficam diretamente na raiz do pacote, sem uma pasta de projeto envolvendo o site.
 
@@ -22,6 +22,8 @@ O ZIP contém os HTML da raiz, as pastas de páginas com `index.html`, `assets`,
 4. Remova o ZIP enviado da pasta pública após a extração.
 5. Confira a home, serviços, projetos, certificados, menu, imagens e as sete novas rotas. Verifique também respostas HTTP 200 para `/robots.txt` e `/sitemap.xml` e o XML retornado pelo servidor.
 6. Envie `https://leonardodalmazzo.com/sitemap.xml` no Search Console da propriedade correspondente e acompanhe a leitura e indexação.
+
+Ao atualizar uma instalação anterior para `v1.3.0`, remova também os arquivos obsoletos `assets/fonts/GraffitiMenu-Regular.woff2` e `css/sections/moreOptionsSection.css` da pasta do site. A extração do ZIP não apaga arquivos antigos. Confirme que `components/showcase/showcaseFilters.js` foi enviado e teste os filtros nas três páginas, em celular e desktop. Se a hospedagem usar cache, atualize-o para evitar misturar versões de CSS e JavaScript.
 
 O push para o GitHub atualiza o repositório; este procedimento não pressupõe deploy automático na HostGator.
 

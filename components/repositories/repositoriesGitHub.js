@@ -3,6 +3,58 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!repoList) return;
 
   const username = "LeonardoDalmazzo";
+  const stackFilters = [
+    { id: "dotnet", label: "C# / .NET", icon: "fas fa-code", matches: ["c#", "csharp", "dotnet", "net", "aspnet", "aspnetcore", "blazor", "entityframework", "efcore"] },
+    { id: "javascript", label: "JavaScript / TypeScript", icon: "fab fa-js", matches: ["javascript", "typescript", "nodejs", "react", "angular", "vue"] },
+    { id: "web", label: "HTML / CSS", icon: "fab fa-html5", matches: ["html", "html5", "css", "css3", "scss", "sass"] },
+    { id: "dados", label: "SQL / Bancos de dados", icon: "fas fa-database", matches: ["sql", "postgresql", "postgres", "sqlite", "mysql", "sqlserver", "tsql", "plpgsql"] },
+    { id: "python", label: "Python", icon: "fab fa-python", matches: ["python", "django", "flask", "fastapi"] },
+    { id: "java", label: "Java", icon: "fab fa-java", matches: ["java", "spring", "springboot"] },
+    { id: "php", label: "PHP", icon: "fab fa-php", matches: ["php", "laravel"] },
+    { id: "c-cpp", label: "C / C++", icon: "fas fa-terminal", matches: ["c", "c++", "cpp"] }
+  ];
+
+  function getRepoCategories(repo) {
+    const technologies = new Set(getFallbackStack(repo).map(value => value.toLowerCase().replace(/[\s._-]/g, "")));
+    const categories = stackFilters
+      .filter(filter => filter.matches.some(technology => technologies.has(technology)))
+      .map(filter => filter.id);
+    return categories.length ? categories : ["outras"];
+  }
+
+  function renderFilters() {
+    const section = repoList.closest(".showcase-page");
+    const controls = section.querySelector("[data-showcase-controls]");
+    const buttons = controls.querySelector(".showcase-filters");
+    const focusedControl = controls.contains(document.activeElement) ? document.activeElement : null;
+    const focusedFilter = focusedControl?.dataset.filter;
+    const focusedSelect = focusedControl?.matches(".showcase-select");
+    const selectedFilter = buttons.querySelector('[aria-pressed="true"]')?.dataset.filter || "all";
+    const categories = new Set(Array.from(repoList.children).flatMap(card => JSON.parse(card.dataset.category || "[]")));
+    const available = [
+      { id: "all", label: "Todos", icon: "fas fa-layer-group" },
+      ...stackFilters.filter(filter => categories.has(filter.id)),
+      ...(categories.has("outras") ? [{ id: "outras", label: "Outras stacks", icon: "fas fa-cubes" }] : [])
+    ];
+    buttons.replaceChildren();
+    controls.querySelector(".showcase-select")?.remove();
+    available.forEach(filter => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "filter-btn";
+      button.classList.toggle("active", filter.id === selectedFilter);
+      button.dataset.filter = filter.id;
+      const label = document.createElement("span");
+      label.dataset.filterLabel = "";
+      label.textContent = filter.label;
+      button.append(createIcon(filter.icon), label);
+      buttons.appendChild(button);
+    });
+    controls.hidden = false;
+    window.ShowcaseFilters.init(repoList);
+    if (focusedSelect) controls.querySelector(".showcase-select").focus();
+    if (focusedFilter) buttons.querySelector(`[data-filter="${focusedFilter}"]`)?.focus();
+  }
   const featuredPrivateRepos = [
     {
       name: "CDD-COR-SP",
@@ -37,11 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Projeto social para o curso de podologia no SENAC.",
       html_url: "https://github.com/LeonardoDalmazzo/Podologia-para-todos",
       homepage: "",
-      language: "HTML",
+      language: "C#",
       private: true,
       fork: false,
       updated_at: "2026-07-04T00:00:00Z",
-      stack: ["HTML", "CSS", "JavaScript"]
+      stack: ["C#", "ASP.NET Core", "Blazor", "EF Core", "PostgreSQL", "Identity", "Docker"]
     },
     {
       name: "ControleAcessoDER",
@@ -50,11 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Controle de entrada, sa\u00edda e almo\u00e7o para funcion\u00e1rios e terceiros no Departamento de Estradas de Rodagem - 10\u00aa Coordenadoria Geral Regional de S\u00e3o Paulo CGR-10.",
       html_url: "https://github.com/LeonardoDalmazzo/ControleAcessoDER",
       homepage: "",
-      language: "HTML",
+      language: "C#",
       private: true,
       fork: false,
       updated_at: "2026-07-04T00:00:00Z",
-      stack: ["HTML", "CSS", "JavaScript"]
+      stack: ["C#", "ASP.NET Core", "Blazor", "EF Core", "SQLite"]
     },
     {
       name: "3Finances",
@@ -76,11 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Sistema web em Blazor para cadastro, gest\u00e3o, visualiza\u00e7\u00e3o e relat\u00f3rios de patrim\u00f4nio do DER - 10\u00aa Coordenadoria Geral Regional de S\u00e3o Paulo (CGR-10), com autentica\u00e7\u00e3o, perfis de acesso e auditoria.",
       html_url: "https://github.com/LeonardoDalmazzo/der-cgr10-inventario-patrimonial",
       homepage: "",
-      language: "",
+      language: "C#",
       private: true,
       fork: false,
       updated_at: "2026-05-18T00:00:00Z",
-      stack: ["HTML", "C#", "CSS", "JavaScript"]
+      stack: ["C#", "ASP.NET Core", "Blazor", "EF Core", "SQLite", "Identity"]
     },
     {
       name: "ARYA",
@@ -111,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const repositoryOverrides = featuredPrivateRepos.reduce((overrides, repo) => {
     overrides[repo.full_name] = repo;
-    overrides[repo.name] = repo;
     return overrides;
   }, {});
   const formatter = new Intl.DateTimeFormat("pt-BR", {
@@ -185,15 +236,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     return [...new Set(stack.filter(Boolean))]
-      .map(item => String(item).replace(/-/g, " "))
-      .slice(0, 7);
+      .map(item => String(item));
   }
 
   function getLanguageStack(languages) {
     return Object.entries(languages)
       .sort(([, currentBytes], [, nextBytes]) => nextBytes - currentBytes)
-      .map(([language]) => language)
-      .slice(0, 7);
+      .map(([language]) => language);
   }
 
   async function hydrateRepoStack(repo) {
@@ -202,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch(repo.languages_url);
+      const response = await fetch(repo.languages_url, { signal: AbortSignal.timeout(8000) });
 
       if (!response.ok) {
         throw new Error(`GitHub Languages respondeu com status ${response.status}`);
@@ -213,16 +262,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return {
         ...repo,
-        stack: languageStack.length ? languageStack : repo.stack
+        stack: [...new Set([...repo.stack, ...languageStack])]
       };
     } catch (error) {
-      console.error(`Falha ao carregar stack de ${repo.full_name || repo.name}:`, error);
-      return repo;
+      return { ...repo, stackIncomplete: true };
     }
   }
 
   function normalizeRepo(repo) {
-    const override = repositoryOverrides[repo.full_name] || repositoryOverrides[repo.name] || {};
+    const override = repositoryOverrides[repo.full_name] || {};
 
     return {
       ...repo,
@@ -235,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderEmptyState(message) {
-    repoList.className = "repo-grid";
+    repoList.className = "showcase-grid repo-grid";
     repoList.innerHTML = "";
 
     const empty = document.createElement("p");
@@ -244,9 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     repoList.appendChild(empty);
   }
 
-  async function renderRepos(repos) {
-    repoList.innerHTML = "";
-
+  function renderRepos(repos) {
     const allRepos = [...featuredPrivateRepos, ...repos]
       .map(normalizeRepo)
       .reduce((uniqueRepos, repo) => {
@@ -263,77 +309,99 @@ document.addEventListener("DOMContentLoaded", () => {
       .filter(repo => !repo.fork)
       .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
-    const hydratedRepos = await Promise.all(visibleRepos.map(hydrateRepoStack));
+    repoList.replaceChildren();
+    visibleRepos.forEach((repo) => {
+      const card = document.createElement("article");
+      card.className = "showcase-card repo-card";
+      card.dataset.category = JSON.stringify(getRepoCategories(repo));
 
-    hydratedRepos.forEach((repo, index) => {
-        const card = document.createElement("article");
-        card.className = "repo-card";
-        card.setAttribute("data-aos", "fade-up");
-        card.setAttribute("data-aos-delay", `${Math.min(index * 60, 360)}`);
+      const body = document.createElement("div");
+      body.className = "repo-card__body";
 
-        const body = document.createElement("div");
-        body.className = "repo-card__body";
+      const eyebrow = document.createElement("div");
+      eyebrow.className = "repo-card__eyebrow";
+      eyebrow.appendChild(createIcon("fab fa-github"));
+      eyebrow.appendChild(document.createTextNode(repo.private ? "Privado" : "P\u00fablico"));
 
-        const eyebrow = document.createElement("div");
-        eyebrow.className = "repo-card__eyebrow";
-        eyebrow.appendChild(createIcon("fab fa-github"));
-        eyebrow.appendChild(document.createTextNode(repo.private ? "Privado" : "P\u00fablico"));
+      const title = document.createElement("h3");
+      title.textContent = repo.name;
 
-        const title = document.createElement("h3");
-        title.textContent = repo.display_name || repo.name;
+      const description = document.createElement("p");
+      description.textContent = repo.description || "Reposit\u00f3rio sem descri\u00e7\u00e3o publicada no GitHub.";
 
-        const description = document.createElement("p");
-        description.textContent = repo.description || "Reposit\u00f3rio sem descri\u00e7\u00e3o publicada no GitHub.";
+      const meta = document.createElement("ul");
+      meta.className = "repo-meta";
+      meta.appendChild(createMetaItem("fas fa-clock", "Atualizado", formatter.format(new Date(repo.updated_at))));
 
-        const meta = document.createElement("ul");
-        meta.className = "repo-meta";
-        meta.appendChild(createMetaItem("fas fa-clock", "Atualizado", formatter.format(new Date(repo.updated_at))));
+      const linksContainer = document.createElement("div");
+      linksContainer.className = "repo-links";
 
-        const linksContainer = document.createElement("div");
-        linksContainer.className = "repo-links";
+      if (repo.canViewCode) {
+        linksContainer.appendChild(createRepoLink(repo.html_url, "fab fa-github", "C\u00f3digo", ""));
+      } else {
+        linksContainer.appendChild(createPrivateCodeNote());
+      }
 
-        if (repo.canViewCode) {
-          linksContainer.appendChild(createRepoLink(repo.html_url, "fab fa-github", "C\u00f3digo", ""));
-        } else {
-          linksContainer.appendChild(createPrivateCodeNote());
-        }
+      if (repo.homepage && /^https?:\/\//.test(repo.homepage)) {
+        linksContainer.appendChild(createRepoLink(repo.homepage, "fas fa-arrow-up-right-from-square", "Site", "repo-link--secondary"));
+      }
 
-        if (repo.homepage && /^https?:\/\//.test(repo.homepage)) {
-          linksContainer.appendChild(createRepoLink(repo.homepage, "fas fa-arrow-up-right-from-square", "Site", "repo-link--secondary"));
-        }
+      body.appendChild(eyebrow);
+      body.appendChild(title);
+      body.appendChild(description);
+      body.appendChild(createStackList(repo.stack.length ? repo.stack : ["Geral"]));
+      body.appendChild(meta);
+      card.appendChild(body);
+      card.appendChild(linksContainer);
+      repoList.appendChild(card);
+    });
 
-        body.appendChild(eyebrow);
-        body.appendChild(title);
-        body.appendChild(description);
-        body.appendChild(createStackList(repo.stack.length ? repo.stack : ["Geral"]));
-        body.appendChild(meta);
-        card.appendChild(body);
-        card.appendChild(linksContainer);
-        repoList.appendChild(card);
-      });
+    renderFilters();
+    repoList.setAttribute("aria-busy", "false");
 
     if (!repoList.children.length) {
       renderEmptyState("Nenhum reposit\u00f3rio ou projeto encontrado no momento.");
     }
   }
 
-  fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`GitHub API respondeu com status ${response.status}`);
+  async function loadRepos() {
+    // Curated projects remain useful while the public list is loading.
+    renderRepos([]);
+    const notice = document.querySelector("[data-repo-notice]");
+    try {
+      const repos = [];
+      let page = 1;
+      while (true) {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated&page=${page}`, {
+          signal: AbortSignal.timeout(8000)
+        });
+        if (!response.ok) throw new Error(`GitHub: ${response.status}`);
+        const batch = await response.json();
+        if (!Array.isArray(batch)) throw new Error("Resposta inesperada do GitHub.");
+        repos.push(...batch);
+        if (batch.length < 100) break;
+        page += 1;
       }
-
-      return response.json();
-    })
-    .then(repos => {
-      if (!Array.isArray(repos)) {
-        throw new Error("Resposta inesperada da API do GitHub.");
+      const normalized = repos.filter(repo => !repo.fork).map(normalizeRepo);
+      renderRepos(normalized);
+      // Limit concurrent requests when enriching language metadata.
+      const hydrated = [];
+      let cursor = 0;
+      await Promise.all(Array.from({ length: Math.min(4, normalized.length) }, async () => {
+        while (cursor < normalized.length) {
+          const repo = normalized[cursor++];
+          hydrated.push(await hydrateRepoStack(repo));
+        }
+      }));
+      renderRepos(hydrated);
+      if (hydrated.some(repo => repo.stackIncomplete)) {
+        notice.textContent = "Algumas stacks usam os dados resumidos do GitHub; a lista completa de linguagens está temporariamente indisponível.";
+        notice.hidden = false;
       }
+    } catch {
+      // Keep the repositories already rendered when GitHub is unavailable.
+    }
+  }
 
-      renderRepos(repos);
-    })
-    .catch(error => {
-      console.error("Falha ao carregar reposit\u00f3rios:", error);
-      renderRepos([]);
-    });
+  loadRepos();
 });
