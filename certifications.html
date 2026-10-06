@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Certifica&ccedil;&otilde;es de Leonardo Dalmazzo - TI e desenvolvimento web" />
-    <title>Leonardo Dalmazzo | Certifica&ccedil;&otilde;es</title>
+    <meta name="description" content="Certificados de Leonardo Dalmazzo - TI e desenvolvimento web" />
+    <title>Leonardo Dalmazzo | Certificados</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,23 +19,25 @@
     <main class="section showcase-page certifications">
 
         <header class="showcase-header certifications-header">
-            <h2>Certifica&ccedil;&otilde;es</h2>
-            <p>Meus 18 certificados de cursos e formações, do mais recente ao mais antigo:</p>
-            <nav class="showcase-filters certifications-filters" aria-label="Filtros de certifica&ccedil;&otilde;es">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="skills">Compet&ecirc;ncias</button>
-                <button class="filter-btn" data-filter="tools">Ferramentas</button>
-                <button class="filter-btn" data-filter="programming-languages">Linguagens de programa&ccedil;&atilde;o</button>
-                <button class="filter-btn" data-filter="cloud">Nuvem</button>
-                <button class="filter-btn" data-filter="software">Software</button>
-                <button class="filter-btn" data-filter="hardware">Hardware</button>
-                <button class="filter-btn" data-filter="redes">Redes</button>
-            </nav>
+            <h2>Certificados</h2>
+            <div class="showcase-controls" data-showcase-controls>
+                <span class="showcase-controls__label" id="certifications-list-filter-label">&Aacute;rea de conhecimento</span>
+                <div class="showcase-filters" role="group" aria-labelledby="certifications-list-filter-label">
+                    <button class="filter-btn active" type="button" data-filter="all"><i class="fas fa-layer-group" aria-hidden="true"></i><span data-filter-label>Todas</span></button>
+                    <button class="filter-btn" type="button" data-filter="desenvolvimento"><i class="fas fa-code" aria-hidden="true"></i><span data-filter-label>Programa&ccedil;&atilde;o e web</span></button>
+                    <button class="filter-btn" type="button" data-filter="dados"><i class="fas fa-database" aria-hidden="true"></i><span data-filter-label>Bancos de dados</span></button>
+                    <button class="filter-btn" type="button" data-filter="nuvem"><i class="fas fa-cloud" aria-hidden="true"></i><span data-filter-label>Computa&ccedil;&atilde;o em nuvem</span></button>
+                    <button class="filter-btn" type="button" data-filter="infraestrutura"><i class="fas fa-network-wired" aria-hidden="true"></i><span data-filter-label>Redes e infraestrutura</span></button>
+                    <button class="filter-btn" type="button" data-filter="versionamento"><i class="fas fa-code-branch" aria-hidden="true"></i><span data-filter-label>Git e versionamento</span></button>
+                    <button class="filter-btn" type="button" data-filter="complementar"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-filter-label>Forma&ccedil;&atilde;o complementar</span></button>
+                </div>
+            </div>
+            <p class="showcase-results" data-showcase-results role="status" aria-live="polite" aria-atomic="true"></p>
         </header>
 
-        <section class="showcase-grid cards-grid" id="certifications-list" data-showcase-gallery>
+        <section class="showcase-grid cards-grid" id="certifications-list" data-showcase-gallery data-item-singular="certificado" data-item-plural="certificados">
 
-            <article class="showcase-card certification-card" data-category='["tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["dados"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Dominando Postgres com Entity Framework/Dominando Postgres com Entity Framework_page-0001.jpg"
                         alt="Balta.io - Dominando Postgres com Entity Framework" loading="lazy" decoding="async">
@@ -48,7 +50,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["dados"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Postgres para devs .NET/Postgres para devs .NET_page-0001.jpg"
                         alt="Balta.io - Postgres para devs .NET" loading="lazy" decoding="async">
@@ -61,7 +63,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["dados"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Fundamentos do Entity Framework/certificado-01.jpg"
                         alt="Balta.io - Fundamentos do Entity Framework" loading="lazy" decoding="async">
@@ -74,7 +76,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","tools","hardware","redes"]'>
+            <article class="showcase-card certification-card" data-category='["infraestrutura"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Cisco/CCNA Introduction to Networks/certificado-01.jpg"
                         alt="Cisco Networking Academy - CCNA: Introduction to Networks" loading="lazy" decoding="async">
@@ -87,7 +89,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","tools","hardware","redes"]'>
+            <article class="showcase-card certification-card" data-category='["infraestrutura"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Senai/CCNA V7 Introduction to Networks/certificado-01.jpg"
                         alt="SENAI &quot;Anchieta&quot; - CCNA V7: Introduction to Networks - frente" loading="lazy" decoding="async">
@@ -102,7 +104,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["dados"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Acesso a dados com NET Csharp Dapper e SQL Server/certificado-01.jpg"
                         alt="Balta.io - Acesso a dados com .NET, C#, Dapper e SQL Server" loading="lazy" decoding="async">
@@ -115,7 +117,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["dados"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Fundamentos do SQL Server/certificado-01.jpg"
                         alt="Balta.io - Fundamentos do SQL Server" loading="lazy" decoding="async">
@@ -128,7 +130,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","programming-languages","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Fundamentos da Orientacao a Objetos/certificado-01.jpg"
                         alt="Balta.io - Fundamentos da Orientação a Objetos" loading="lazy" decoding="async">
@@ -141,7 +143,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/fundacao-bradesco/Projetos de Sistemas de TI/certificado-01.jpg"
                         alt="Fundação Bradesco - Escola Virtual - Projetos de Sistemas de TI" loading="lazy" decoding="async">
@@ -154,7 +156,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","skills","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/fundacao-bradesco/linguagem-de-programacao-python-basico/certificado-01.jpg"
                         alt="Fundação Bradesco - Escola Virtual - Linguagem de Programação Python - Básico" loading="lazy" decoding="async">
@@ -167,7 +169,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","programming-languages","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/fundacao-bradesco/introducao-a-programacao-orientada-a-objetos-poo/certificado-01.jpg"
                         alt="Fundação Bradesco - Escola Virtual - Introdução à Programação Orientada a Objetos (POO)" loading="lazy" decoding="async">
@@ -180,7 +182,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","hardware","software"]'>
+            <article class="showcase-card certification-card" data-category='["infraestrutura"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/fundacao-bradesco/FUNDAMENTOS DE TI HARDWARE E SOFTWARE/certificado-01.jpg"
                         alt="Fundação Bradesco - Escola Virtual - Fundamentos de TI: Hardware e Software" loading="lazy" decoding="async">
@@ -193,12 +195,12 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["skills","tools"]'>
+            <article class="showcase-card certification-card" data-category='["complementar"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Senai/caracteristicas-tecnicas-das-motocicletas-triumph-adv/caracteristicas-tecnicas-das-motocicletas-triumph-adventure-01.png"
-                        alt="Certifica&ccedil;&atilde;o SENAI - frente" loading="lazy" decoding="async">
+                        alt="Certificado SENAI - frente" loading="lazy" decoding="async">
                     <img src="assets/imgs/certifications/Senai/caracteristicas-tecnicas-das-motocicletas-triumph-adv/caracteristicas-tecnicas-das-motocicletas-triumph-adventure-02.png"
-                        alt="Certifica&ccedil;&atilde;o SENAI - verso (conte&uacute;do program&aacute;tico)" loading="lazy" decoding="async">
+                        alt="Certificado SENAI - verso (conte&uacute;do program&aacute;tico)" loading="lazy" decoding="async">
                 </div>
                 <div class="showcase-card__content card-info">
                     <h3>Características Técnicas das Motocicletas Triumph Adventure</h3>
@@ -208,7 +210,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","skills","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Fundamentos de Csharp/Fundamentos de Csharp.png"
                         alt="Certificado Balta.io - Fundamentos do C#" loading="lazy" decoding="async">
@@ -221,7 +223,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","skills","software"]'>
+            <article class="showcase-card certification-card" data-category='["desenvolvimento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Balta.io/Sites Responsivos/certificado-01.jpg"
                         alt="Certificado Balta.io - Sites Responsivos" loading="lazy" decoding="async">
@@ -234,7 +236,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["tools","cloud","software","hardware","redes"]'>
+            <article class="showcase-card certification-card" data-category='["nuvem"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/AWS Academy/cloudFoundations.png"
                         alt="Certificado AWS Academy Cloud Foundations" loading="lazy" decoding="async">
@@ -247,7 +249,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["tools","cloud","software","hardware","redes"]'>
+            <article class="showcase-card certification-card" data-category='["nuvem"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Senai/implantacao-de-servicos-em-nuvem-aws-cloud-practitioner-foundational/implantacao-de-servicos-em-nuvem-aws-cloud-practitioner-foundational-01.png"
                         alt="SENAI AWS - frente" loading="lazy" decoding="async">
@@ -262,7 +264,7 @@
                 </div>
             </article>
 
-            <article class="showcase-card certification-card" data-category='["programming-languages","skills","tools","software"]'>
+            <article class="showcase-card certification-card" data-category='["versionamento"]'>
                 <div class="showcase-card__media card-img" data-showcase-media>
                     <img src="assets/imgs/certifications/Alura/gitGithub.png"
                         alt="Alura Git & GitHub" loading="lazy" decoding="async">
@@ -281,6 +283,7 @@
 
     <script src="components/layout/footer/footer.js" defer></script>
     <script src="js/colorCustomizer.js" defer></script>
+    <script src="components/showcase/showcaseFilters.js" defer></script>
     <script src="components/showcase/showcaseGallery.js" defer></script>
 </body>
 </html>

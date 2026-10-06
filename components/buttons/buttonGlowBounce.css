@@ -2,7 +2,7 @@
 .btn-glow-bounce {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    color: #fff !important;
+    color: var(--color-text-on-main) !important;
     background-color: var(--color-main);
     text-decoration: none;
     font-weight: bold;
@@ -16,6 +16,7 @@
 
 .btn-glow-bounce:hover {
     background-color: var(--color-hover-main);
+    color: var(--color-text-on-secondary) !important;
 }
 
 /* Keyframes */

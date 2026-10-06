@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="footer__name">Leonardo Dalmazzo</p>
           <p class="footer__message">Vamos conversar sobre seu pr&oacute;ximo projeto?</p>
         </div>
-        <a class="footer__contact" href="https://wa.me/5511991795884" target="_blank" rel="noopener noreferrer">
+        <a class="footer__contact" href="https://wa.me/5511991795884?text=Ol%C3%A1%2C%20Leonardo!%20Quero%20conversar%20sobre%20um%20projeto%20ou%20acompanhamento%20mensal." target="_blank" rel="noopener noreferrer">
           Fale comigo no WhatsApp
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>

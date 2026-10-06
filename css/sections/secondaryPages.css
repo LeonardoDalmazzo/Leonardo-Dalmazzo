@@ -1,7 +1,7 @@
 .content-page {
-    --page-border: rgba(var(--color-main-rgb), 0.18);
-    --page-surface: #f5f8f8;
-    --page-muted: #536261;
+    --page-border: var(--color-border);
+    --page-surface: var(--color-surface);
+    --page-muted: var(--color-muted);
     --page-radius: 1rem;
 
     width: min(100%, 90rem);
@@ -13,9 +13,9 @@
 }
 
 body.dark .content-page {
-    --page-border: rgba(255, 255, 255, 0.16);
-    --page-surface: #1d282b;
-    --page-muted: #b8c3c1;
+    --page-border: var(--color-border);
+    --page-surface: var(--color-surface);
+    --page-muted: var(--color-muted);
 
     color: var(--color-text-dark);
 }
@@ -29,9 +29,10 @@ body.dark .content-page {
 .content-page__header h1 {
     margin: 0 0 0.8rem;
     color: var(--color-main);
-    font-family: var(--font-nav);
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
     overflow-wrap: anywhere;
     text-wrap: balance;
 }

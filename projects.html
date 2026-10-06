@@ -24,22 +24,22 @@
     <!-- Header secundário de filtros -->
     <header class="showcase-header projects-header">
       <h2>Projetos</h2>
-      <p>Projetos selecionados do portf&oacute;lio, organizados por tipo de entrega e pr&eacute;via visual.</p>
-      <p>Quer um projeto para seu neg&oacute;cio? Conhe&ccedil;a a <a href="criacao-de-sites/">cria&ccedil;&atilde;o de sites profissionais</a>, as <a href="landing-pages/">landing pages</a> e os <a href="site-institucional/">sites institucionais</a>.</p>
-      <nav class="showcase-filters projects-filters" aria-label="Filtros de projetos">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="sites">Sites</button>
-        <button class="filter-btn" data-filter="landing-pages">Landing pages</button>
-        <button class="filter-btn" data-filter="apps">Apps</button>
-        <button class="filter-btn" data-filter="apis">APIs</button>
-        <button class="filter-btn" data-filter="ferramentas">Ferramentas</button>
-      </nav>
+      <div class="showcase-controls" data-showcase-controls>
+        <span class="showcase-controls__label" id="projects-list-filter-label">Tipo de projeto</span>
+        <div class="showcase-filters" role="group" aria-labelledby="projects-list-filter-label">
+          <button class="filter-btn active" type="button" data-filter="all"><i class="fas fa-layer-group" aria-hidden="true"></i><span data-filter-label>Todos</span></button>
+          <button class="filter-btn" type="button" data-filter="sites"><i class="fas fa-globe" aria-hidden="true"></i><span data-filter-label>Sites institucionais</span></button>
+          <button class="filter-btn" type="button" data-filter="sistemas"><i class="fas fa-briefcase" aria-hidden="true"></i><span data-filter-label>Sistemas de gest&atilde;o</span></button>
+          <button class="filter-btn" type="button" data-filter="plataformas"><i class="fas fa-laptop-code" aria-hidden="true"></i><span data-filter-label>Plataformas web</span></button>
+        </div>
+      </div>
+      <p class="showcase-results" data-showcase-results role="status" aria-live="polite" aria-atomic="true"></p>
     </header>
 
     <!-- Lista de projetos -->
-    <section class="showcase-grid projects-grid" id="projects-list" data-showcase-gallery data-showcase-autoplay="manual">
+    <section class="showcase-grid projects-grid" id="projects-list" data-showcase-gallery data-item-singular="projeto" data-item-plural="projetos" data-showcase-autoplay="manual">
 
-      <article class="showcase-card project-card" data-category='["sites","landing-pages"]' data-showcase-order="6">
+      <article class="showcase-card project-card" data-category='["sites"]' data-showcase-order="6">
         <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (1).png" alt="Página do projeto Fiançailles em desktop">
           <img src="assets/imgs/projects/leonardodalmazzo.github.iofiancailles/leonardodalmazzo.github.io_fiancailles_ (2).png" alt="Página do projeto Fiançailles em desktop">
@@ -57,7 +57,7 @@
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="5">
+      <article class="showcase-card project-card" data-category='["sistemas"]' data-showcase-order="5">
         <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (01).png" alt="Tela inicial do sistema financeiro 3Finances">
           <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (02).png" alt="Painel do sistema financeiro 3Finances">
@@ -75,7 +75,7 @@
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="3">
+      <article class="showcase-card project-card" data-category='["sistemas"]' data-showcase-order="3">
         <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (01).png" alt="Painel do sistema Controle de Acesso DER">
           <img src="assets/imgs/projects/controle-acesso-DER/controle-acesso-DER_ (02).png" alt="Tela do sistema Controle de Acesso DER">
@@ -91,7 +91,7 @@
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["apps","ferramentas"]' data-showcase-order="2">
+      <article class="showcase-card project-card" data-category='["sistemas"]' data-showcase-order="2">
         <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (01).png" alt="Painel do sistema de inventário patrimonial DER-CGR10">
           <img src="assets/imgs/projects/der-cgr10-inventario-patrimonial/der-cgr10-inventario-patrimonial_ (02).png" alt="Tela do sistema de inventário patrimonial DER-CGR10">
@@ -108,7 +108,7 @@
         </div>
       </article>
 
-      <article class="showcase-card project-card" data-category='["sites"]' data-showcase-order="4">
+      <article class="showcase-card project-card" data-category='["plataformas"]' data-showcase-order="4">
         <div class="showcase-card__media project-img" data-showcase-media>
           <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (01).png" alt="Página inicial do projeto Podologia para Todos">
           <img src="assets/imgs/projects/podologia-para-todos.onrender.com/podologia-para-todos.onrender.com_ (02).png" alt="Página do projeto Podologia para Todos">
@@ -153,7 +153,8 @@
 
   <!-- Scripts -->
   <script src="js/colorCustomizer.js" defer></script>
-  <script src="components/showcase/showcaseGallery.js" defer></script>
+  <script src="components/showcase/showcaseFilters.js" defer></script>
+    <script src="components/showcase/showcaseGallery.js" defer></script>
 </body>
 
 </html>

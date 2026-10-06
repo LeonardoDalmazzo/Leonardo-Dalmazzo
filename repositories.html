@@ -8,29 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/sections/secondaryPages.css" />
 </head>
 <body>
     <script src="components/layout/header/header.js" defer></script>
-    <main class="content-page repositories">
-        <div class="repositories-content">
-            <header class="content-page__header repositories-header">
-                <span class="repositories-kicker">GitHub</span>
-                <h1>Repositórios</h1>
-                <p>Explore meus projetos, conheça os sites disponíveis e acesse o código dos repositórios públicos.</p>
-            </header>
-            <div id="repo-list" class="repo-grid" aria-live="polite" aria-label="Lista de repositórios">
-                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
-                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
-                <article class="repo-card repo-card--loading" aria-hidden="true"></article>
+    <main class="section showcase-page repositories">
+        <header class="showcase-header repositories-header">
+            <h1>Reposit&oacute;rios</h1>
+            <div class="showcase-controls" data-showcase-controls hidden>
+                <span class="showcase-controls__label" id="repo-filter-label">Filtrar por stack</span>
+                <div class="showcase-filters" role="group" aria-labelledby="repo-filter-label"></div>
             </div>
-            <noscript>
-                <p class="content-panel">Veja os repositórios no <a href="https://github.com/LeonardoDalmazzo" target="_blank" rel="noopener noreferrer">perfil de Leonardo Dalmazzo no GitHub</a>.</p>
-            </noscript>
-        </div>
+            <p class="showcase-results" data-showcase-results role="status" aria-live="polite" aria-atomic="true">Carregando reposit&oacute;rios...</p>
+        </header>
+        <p class="repo-notice" data-repo-notice role="status" hidden></p>
+        <div id="repo-list" class="showcase-grid repo-grid" data-item-singular="reposit&oacute;rio" data-item-plural="reposit&oacute;rios" aria-label="Lista de reposit&oacute;rios" aria-busy="true"></div>
+        <noscript>
+            <p class="repo-empty">Veja os reposit&oacute;rios no <a href="https://github.com/LeonardoDalmazzo" target="_blank" rel="noopener noreferrer">perfil de Leonardo Dalmazzo no GitHub</a>.</p>
+        </noscript>
     </main>
     <script src="components/layout/footer/footer.js" defer></script>
     <script src="js/colorCustomizer.js" defer></script>
+    <script src="components/showcase/showcaseFilters.js" defer></script>
     <script src="components/repositories/repositoriesGitHub.js" defer></script>
 </body>
 </html>

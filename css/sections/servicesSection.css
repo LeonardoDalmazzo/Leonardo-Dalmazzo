@@ -1,7 +1,7 @@
 .services-page {
-    --services-surface: #f5f8f8;
-    --services-muted: #536261;
-    --services-border: rgba(var(--color-main-rgb), 0.18);
+    --services-surface: var(--color-surface);
+    --services-muted: var(--color-muted);
+    --services-border: var(--color-border);
     --services-radius: 1rem;
     --services-gap: clamp(1.25rem, 3vw, 2.5rem);
 
@@ -14,9 +14,9 @@
 }
 
 body.dark .services-page {
-    --services-surface: #1d282b;
-    --services-muted: #b8c3c1;
-    --services-border: rgba(255, 255, 255, 0.16);
+    --services-surface: var(--color-surface);
+    --services-muted: var(--color-muted);
+    --services-border: var(--color-border);
 
     color: var(--color-text-dark);
 }

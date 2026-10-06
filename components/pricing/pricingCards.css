@@ -1,0 +1,133 @@
+/* Reusable pricing cards. Inherits surface, theme and spacing from services-page. */
+.pricing-grid {
+    --pricing-gap: calc(var(--spacing) * 1.5);
+    --pricing-padding: clamp(1.25rem, 3vw, 2rem);
+    --pricing-price-size: clamp(2rem, 3vw, 2.75rem);
+    --pricing-label-size: 0.85rem;
+    --pricing-highlight-border: 2px solid var(--color-main);
+
+    display: grid;
+    gap: var(--pricing-gap);
+    margin-block: var(--pricing-gap);
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    padding: var(--pricing-padding);
+    border: 2px solid var(--services-border);
+    border-radius: var(--services-radius);
+    background: var(--services-surface);
+}
+
+.pricing-card--featured {
+    border: var(--pricing-highlight-border);
+}
+
+.pricing-card__heading {
+    display: flex;
+    min-height: calc(var(--spacing) * 2);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 0.5);
+}
+
+.pricing-card__badge {
+    padding: calc(var(--spacing) * 0.25) calc(var(--spacing) * 0.65);
+    border-radius: var(--services-radius);
+    background: var(--color-main);
+    color: var(--color-text-on-main);
+    font-size: var(--pricing-label-size);
+    font-weight: 700;
+}
+
+.pricing-card__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: calc(var(--spacing) * 0.4);
+}
+
+.pricing-card__price strong {
+    font-size: var(--pricing-price-size);
+    font-weight: 750;
+    line-height: var(--line-height-heading);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.pricing-card__price span,
+.pricing-card__description,
+.pricing-card__note {
+    color: var(--services-muted);
+    font-size: var(--pricing-label-size);
+}
+
+.pricing-card__saving {
+    padding: var(--spacing);
+    border-radius: calc(var(--services-radius) * 0.5);
+    background: var(--color-surface-soft);
+    font-size: var(--pricing-label-size);
+}
+
+.services-page .pricing-card__saving {
+    margin-top: auto;
+}
+
+.pricing-card__saving strong {
+    display: block;
+    font-weight: 700;
+}
+
+.pricing-card .service-button {
+    width: 100%;
+}
+
+.pricing-card__features {
+    display: grid;
+    gap: calc(var(--spacing) * 0.5);
+    padding: 0;
+    list-style: none;
+    font-size: var(--pricing-label-size);
+}
+
+.pricing-card__features li {
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--spacing) * 0.5);
+}
+
+.pricing-card__features i {
+    flex-shrink: 0;
+    color: var(--color-main);
+}
+
+@media (min-width: 960px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 700px) {
+    .pricing-grid--four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1200px) {
+    .pricing-grid--four {
+        --pricing-padding: calc(var(--spacing) * 1.25);
+        --pricing-price-size: 2rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .pricing-grid--four .pricing-card__heading {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-height: calc(var(--spacing) * 4);
+    }
+}
