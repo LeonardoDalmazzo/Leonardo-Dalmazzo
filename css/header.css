@@ -1,6 +1,6 @@
 #header {
-    --header-border: rgba(var(--color-main-rgb), 0.18);
-    --header-surface: var(--color-bg);
+    --header-border: var(--color-border);
+    --header-surface: var(--color-surface);
     --header-text: var(--color-text);
     --header-radius: 0.5rem;
     --header-gap: 0.5rem;
@@ -19,8 +19,8 @@
 }
 
 body.dark #header {
-    --header-border: rgba(255, 255, 255, 0.14);
-    --header-surface: var(--color-bg-dark);
+    --header-border: var(--color-border);
+    --header-surface: var(--color-surface);
     --header-text: var(--color-text-dark);
 }
 
@@ -170,7 +170,7 @@ body.dark #header {
     bottom: max(1rem, env(safe-area-inset-bottom));
     z-index: 1100;
     font-size: 1.2rem;
-    background: var(--color-bg);
+    background: var(--color-surface);
     border: 1px solid rgba(var(--color-main-rgb), 0.18);
     border-radius: 50%;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
@@ -183,7 +183,7 @@ body.dark #header {
     bottom: max(8rem, calc(env(safe-area-inset-bottom) + 8rem));
     z-index: 1100;
     font-size: 1.1rem;
-    background: var(--color-bg);
+    background: var(--color-surface);
     border: 1px solid var(--color-main);
     border-radius: 50%;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
@@ -199,7 +199,7 @@ body.dark #header {
     bottom: max(4.5rem, calc(env(safe-area-inset-bottom) + 4.5rem));
     z-index: 1100;
     font-size: 1.1rem;
-    background: var(--color-bg);
+    background: var(--color-surface);
     border: 1px solid rgba(var(--color-main-rgb), 0.18);
     border-radius: 50%;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
@@ -221,7 +221,7 @@ body.dark #header {
     gap: 0.85rem;
     padding: 1rem;
     color: var(--color-text);
-    background: var(--color-bg);
+    background: var(--color-surface);
     border: 1px solid var(--color-main);
     border-radius: 8px;
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
@@ -315,7 +315,7 @@ body.dark #theme-toggle,
 body.dark #scroll-top,
 body.dark #color-toggle,
 body.dark .color-panel {
-    background: var(--color-bg-dark);
+    background: var(--color-surface);
     border-color: rgba(255, 255, 255, 0.16);
 }
 

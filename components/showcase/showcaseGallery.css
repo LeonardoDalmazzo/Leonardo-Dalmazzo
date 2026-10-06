@@ -2,7 +2,7 @@
 
 .showcase-page {
   --showcase-control-text: var(--color-text);
-  --showcase-control-surface: var(--color-bg);
+  --showcase-control-surface: var(--color-surface);
   --showcase-control-border: rgba(var(--color-main-rgb), 0.22);
   --showcase-control-radius: 0.5rem;
   --showcase-control-gap: 0.5rem;
@@ -15,7 +15,7 @@
 
 body.dark .showcase-page {
   --showcase-control-text: var(--color-text-dark);
-  --showcase-control-surface: var(--color-bg-dark);
+  --showcase-control-surface: var(--color-surface);
 }
 
 .showcase-header {
@@ -185,8 +185,8 @@ body.dark .showcase-select {
   flex-direction: column;
   overflow: visible;
   color: var(--color-text);
-  background: var(--color-bg);
-  border: 1px solid rgba(var(--color-main-rgb), 0.08);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   position: relative;
@@ -299,7 +299,7 @@ body.dark .showcase-select {
   display: block;
   margin-top: auto;
   padding-top: 0.8rem;
-  color: #667085;
+  color: var(--color-muted);
   font-size: 0.8rem;
   font-style: italic;
   line-height: 1.2;
@@ -372,6 +372,7 @@ body.dark .showcase-select {
 .carousel-controls button:hover,
 .carousel-controls button:focus-visible {
   background: var(--color-main);
+  color: var(--color-text-on-main);
   transform: scale(1.04);
 }
 
@@ -497,8 +498,8 @@ body.dark .showcase-select {
 
 body.dark .showcase-card {
   color: var(--color-text-dark);
-  background: #252525;
-  border-color: #333;
+  background: var(--color-surface);
+  border-color: var(--color-border);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -518,11 +519,11 @@ body.dark .showcase-card .project-desc {
 body.dark .showcase-card__date,
 body.dark .showcase-card .date,
 body.dark .showcase-card .project-date {
-  color: #b8c0c0;
+  color: var(--color-muted);
 }
 
 body.dark .showcase-card__media {
-  background: #1e1e1e;
+  background: var(--color-surface-soft);
 }
 
 body.dark .showcase-tags li {

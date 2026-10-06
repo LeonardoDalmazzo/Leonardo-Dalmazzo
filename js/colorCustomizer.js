@@ -2,14 +2,26 @@ const COLOR_STORAGE_KEY = "siteColors";
 const MIN_THEME_CONTRAST_RATIO = 4.5;
 const THEME_COLOR_PRESETS = {
   light: {
-    main: "#0f4c5c",
-    secondary: "#9a3412",
+    main: "#1d4ed8",
+    secondary: "#1e40af",
   },
   dark: {
-    main: "#8bcfc2",
-    secondary: "#f1a56b",
+    main: "#93c5fd",
+    secondary: "#bfdbfe",
   },
 };
+const LEGACY_THEME_COLOR_PRESETS = {
+  light: { main: "#0f4c5c", secondary: "#9a3412" },
+  dark: { main: "#8bcfc2", secondary: "#f1a56b" },
+};
+
+function migratePresetColors(colors, theme) {
+  const legacy = LEGACY_THEME_COLOR_PRESETS[theme];
+  return colors?.main?.toLowerCase() === legacy.main
+    && colors?.secondary?.toLowerCase() === legacy.secondary
+    ? getThemePresetColors(theme)
+    : colors;
+}
 const COLOR_LABELS = {
   main: "principal",
   secondary: "secundaria",
@@ -33,13 +45,13 @@ function getStoredSiteColorThemes() {
 
     if (isValidHexColor(parsedColors.main) || isValidHexColor(parsedColors.secondary)) {
       return {
-        [getCurrentTheme()]: normalizeSiteColors(parsedColors, getThemePresetColors()),
+        [getCurrentTheme()]: normalizeSiteColors(migratePresetColors(parsedColors, getCurrentTheme()), getThemePresetColors()),
       };
     }
 
     return Object.keys(THEME_COLOR_PRESETS).reduce((themes, theme) => {
       if (parsedColors[theme]) {
-        themes[theme] = normalizeSiteColors(parsedColors[theme], getThemePresetColors(theme));
+        themes[theme] = normalizeSiteColors(migratePresetColors(parsedColors[theme], theme), getThemePresetColors(theme));
       }
 
       return themes;
@@ -54,12 +66,9 @@ function isValidHexColor(color) {
 }
 
 function getReadableTextColor(hexColor) {
-  const red = parseInt(hexColor.slice(1, 3), 16);
-  const green = parseInt(hexColor.slice(3, 5), 16);
-  const blue = parseInt(hexColor.slice(5, 7), 16);
-  const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
-
-  return brightness > 150 ? "#111" : "#fff";
+  return getContrastRatio(hexColor, "#0f172a") > getContrastRatio(hexColor, "#ffffff")
+    ? "#0f172a"
+    : "#ffffff";
 }
 
 function getRgbColor(hexColor) {
@@ -111,7 +120,7 @@ function getContrastRatio(firstColor, secondColor) {
 
 function getThemeBackgroundColor(theme = getCurrentTheme()) {
   const variableName = theme === "dark" ? "--color-bg-dark" : "--color-bg";
-  const fallbackColor = theme === "dark" ? "#141a1d" : "#ffffff";
+  const fallbackColor = theme === "dark" ? "#0f172a" : "#f8fafc";
   const themeColor = getComputedStyle(document.documentElement)
     .getPropertyValue(variableName)
     .trim();
@@ -122,11 +131,16 @@ function getThemeBackgroundColor(theme = getCurrentTheme()) {
 function validateSiteColors(colors, theme = getCurrentTheme()) {
   const normalizedColors = normalizeSiteColors(colors, getThemePresetColors(theme));
   const themeBackgroundColor = getThemeBackgroundColor(theme);
+  const surfaceVariable = theme === "dark" ? "--color-surface-dark" : "--color-surface";
+  const surfaceColor = getComputedStyle(document.documentElement).getPropertyValue(surfaceVariable).trim();
   const failedColors = Object.entries(normalizedColors)
     .map(([key, color]) => ({
       key,
       label: COLOR_LABELS[key],
-      ratio: getContrastRatio(color, themeBackgroundColor),
+      ratio: Math.min(
+        getContrastRatio(color, themeBackgroundColor),
+        getContrastRatio(color, surfaceColor || themeBackgroundColor)
+      ),
     }))
     .filter(({ ratio }) => ratio < MIN_THEME_CONTRAST_RATIO);
 
@@ -238,7 +252,7 @@ function createColorCustomizer() {
       <input id="primary-color-input" type="color" value="${activeColors.main}" aria-describedby="color-feedback">
     </label>
     <label>
-      <span>Secund&aacute;ria</span>
+      <span>Intera&ccedil;&atilde;o</span>
       <input id="secondary-color-input" type="color" value="${activeColors.secondary}" aria-describedby="color-feedback">
     </label>
     <p class="color-panel__feedback" id="color-feedback" aria-live="polite"></p>

@@ -17,18 +17,28 @@
     --line-height-heading: 1.2;
     --nav-group-gap: 1.5rem;
 
-    --color-main: #0f4c5c;
-    --color-main-rgb: 15, 76, 92;
-    --color-hover-main: #9a3412;
-    --color-hover-main-rgb: 154, 52, 18;
+    --color-main: #1d4ed8;
+    --color-main-rgb: 29, 78, 216;
+    --color-hover-main: #1e40af;
+    --color-hover-main-rgb: 30, 64, 175;
 
-    --color-bg: #ffffff;
-    --color-text: #17201f;
+    --color-bg: #f8fafc;
+    --color-text: #0f172a;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f1f5f9;
+    --color-muted: #475569;
+    --color-border: #cbd5e1;
+    --color-brand-bg: #172554;
+    --color-brand-text: #f8fafc;
     --color-accent: var(--color-main);
     --color-link: var(--color-main);
 
-    --color-bg-dark: #141a1d;
-    --color-text-dark: #f4f7f6;
+    --color-bg-dark: #0f172a;
+    --color-text-dark: #f1f5f9;
+    --color-surface-dark: #1e293b;
+    --color-surface-soft-dark: #172033;
+    --color-muted-dark: #cbd5e1;
+    --color-border-dark: #475569;
     --color-accent-dark: var(--color-main);
     --color-link-dark: var(--color-main);
 

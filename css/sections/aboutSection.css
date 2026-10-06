@@ -2,13 +2,13 @@
     width: 100vw;
     min-height: 100vh;
     margin-left: calc(50% - 50vw);
-    background-color: var(--color-main);
+    background-color: var(--color-brand-bg);
     overflow: hidden;
 }
 
 .about h2 {
     font-family: var(--font-heading);
-    color: var(--color-text-on-main);
+    color: var(--color-brand-text);
 }
 
 .about-content {
@@ -33,7 +33,7 @@
     width: min(100%, 48rem);
     display: grid;
     gap: 1rem;
-    color: var(--color-text-on-main);
+    color: var(--color-brand-text);
 }
 
 .adml-insight > p {
@@ -54,8 +54,8 @@
 .adml-pillars article {
     padding: 0.875rem;
     color: var(--color-text);
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-bg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
 }
 
@@ -70,13 +70,13 @@
 }
 
 body.dark .adml-insight {
-    color: var(--color-text-on-main);
+    color: var(--color-brand-text);
 }
 
 body.dark .adml-pillars article {
     color: var(--color-text-dark);
-    background-color: var(--color-bg-dark);
-    border-color: var(--color-bg-dark);
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
 }
 
 .about .stack-grid {
@@ -85,9 +85,9 @@ body.dark .adml-pillars article {
 }
 
 .about .stack-card {
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
     color: var(--color-text);
-    border: 1px solid var(--color-bg);
+    border: 1px solid var(--color-border);
 }
 
 .about .stack-card:hover {
@@ -95,9 +95,9 @@ body.dark .adml-pillars article {
 }
 
 body.dark .about .stack-card {
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-surface);
     color: var(--color-text-dark);
-    border-color: var(--color-bg-dark);
+    border-color: var(--color-border);
 }
 
 body.dark .about .stack-card:hover {
