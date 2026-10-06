@@ -15,10 +15,12 @@ function loadHeader() {
           <span>Menu</span>
         </button>
         <div class="nav-drawer" id="primary-navigation" data-nav-menu>
-          <a href="${getLink("services.html")}"><i class="fas fa-briefcase" aria-hidden="true"></i> Servi&ccedil;os</a>
-          <a href="${getLink("projects.html")}"><i class="fas fa-laptop-code" aria-hidden="true"></i> Projetos</a>
+          <a href="${getLink("#home")}"><i class="fas fa-house" aria-hidden="true"></i> Home</a>
           <a href="${getLink("#about")}"><i class="fas fa-user" aria-hidden="true"></i> Sobre</a>
-          <a href="${getLink("certifications.html")}"><i class="fas fa-award" aria-hidden="true"></i> Certifica&ccedil;&otilde;es</a>
+          <a href="${getLink("services.html")}"><i class="fas fa-briefcase" aria-hidden="true"></i> Servi&ccedil;os</a>
+          <a href="${getLink("hospedagem-de-sites/")}"><i class="fas fa-server" aria-hidden="true"></i> Hospedagem</a>
+          <a href="${getLink("projects.html")}"><i class="fas fa-laptop-code" aria-hidden="true"></i> Projetos</a>
+          <a href="${getLink("certifications.html")}"><i class="fas fa-award" aria-hidden="true"></i> Certificados</a>
           <a href="${getLink("repositories.html")}"><i class="fab fa-github" aria-hidden="true"></i> Reposit&oacute;rios</a>
           <a class="nav-contact" href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
         </div>
@@ -74,11 +76,13 @@ function loadHeader() {
   }
 
   function updateCurrentLink() {
+    const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+    const currentHash = location.hash || (currentPath === siteRootUrl.pathname ? "#home" : "");
+
     navMenu.querySelectorAll("a").forEach((link) => {
       const target = new URL(link.href);
-      const homePath = new URL("index.html", siteRootUrl).pathname;
-      const currentPath = location.pathname === siteRootUrl.pathname ? homePath : location.pathname;
-      const isCurrent = target.pathname === currentPath && target.hash === location.hash;
+      const targetPath = target.pathname.replace(/\/index\.html$/, "/");
+      const isCurrent = targetPath === currentPath && target.hash === currentHash;
       if (isCurrent) {
         link.setAttribute("aria-current", target.hash ? "location" : "page");
       } else {
