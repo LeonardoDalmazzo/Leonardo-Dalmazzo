@@ -1,7 +1,7 @@
 /* Page-specific tweaks for the shared showcase component. */
 
 .certifications .showcase-card__media {
-  background: #e0e0e0;
+  background: var(--color-surface-soft);
 }
 
 .certifications .showcase-card__media img {
@@ -9,5 +9,5 @@
 }
 
 body.dark .certifications .showcase-card__media {
-  background: #1e1e1e;
+  background: var(--color-surface-soft);
 }

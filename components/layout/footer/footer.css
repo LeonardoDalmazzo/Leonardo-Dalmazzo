@@ -1,12 +1,12 @@
 .footer {
-    --footer-border: rgba(var(--color-main-rgb), 0.18);
-    --footer-muted: #596361;
+    --footer-border: var(--color-border);
+    --footer-muted: var(--color-muted);
     --footer-radius: 0.5rem;
     --footer-transition: 180ms ease;
 
     padding: calc(var(--spacing) * 2.5) var(--spacing) calc(var(--spacing) * 2);
     color: var(--color-text);
-    background: var(--color-bg);
+    background: var(--color-surface);
     border-top: 1px solid var(--footer-border);
     font-family: var(--font-main);
     line-height: 1.5;
@@ -114,11 +114,11 @@
 }
 
 body.dark .footer {
-    --footer-border: rgba(255, 255, 255, 0.14);
-    --footer-muted: #b8c3c1;
+    --footer-border: var(--color-border);
+    --footer-muted: var(--color-muted);
 
     color: var(--color-text-dark);
-    background: var(--color-bg-dark);
+    background: var(--color-surface);
 }
 
 body.dark .footer__contact:focus-visible {

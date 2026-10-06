@@ -49,6 +49,10 @@ body {
 }
 
 body.dark {
+    --color-surface: var(--color-surface-dark);
+    --color-surface-soft: var(--color-surface-soft-dark);
+    --color-muted: var(--color-muted-dark);
+    --color-border: var(--color-border-dark);
     background-color: var(--color-bg-dark);
     color: var(--color-text-dark);
 }
@@ -67,4 +71,8 @@ svg,
 video,
 canvas {
     max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
