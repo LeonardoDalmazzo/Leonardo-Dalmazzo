@@ -20,7 +20,6 @@ function loadHeader() {
           <a href="${getLink("#about")}"><i class="fas fa-user" aria-hidden="true"></i> Sobre</a>
           <a href="${getLink("certifications.html")}"><i class="fas fa-award" aria-hidden="true"></i> Certifica&ccedil;&otilde;es</a>
           <a href="${getLink("repositories.html")}"><i class="fab fa-github" aria-hidden="true"></i> Reposit&oacute;rios</a>
-          <a href="${getLink("partners.html")}"><i class="fas fa-handshake" aria-hidden="true"></i> Parceiros</a>
           <a class="nav-contact" href="${getLink("#contact")}"><i class="fas fa-envelope" aria-hidden="true"></i> Contato</a>
         </div>
       </div>
