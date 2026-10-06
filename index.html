@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Portf&oacute;lio de Leonardo Dalmazzo - Suporte t&eacute;cnico, manuten&ccedil;&atilde;o de computadores, redes, desenvolvimento web e aplicativos full stack." />
-    <title>Leonardo Dalmazzo | TI e Desenvolvimento Web</title>
+        content="Sites e sistemas para sua empresa, com desenvolvimento sob medida e acompanhamento mensal. Conheça os projetos Loctubo e 3Finances e converse com Leonardo Dalmazzo." />
+    <title>Sites e sistemas para sua empresa | Leonardo Dalmazzo</title>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -20,12 +20,79 @@
 <body>
     <main>
         <section id="home" class="section home">
-            <div class="home-content">
-                <h1>Leonardo Dalmazzo</h1>
-                <p>Suporte t&eacute;cnico, manuten&ccedil;&atilde;o de computadores, redes, desenvolvimento de solu&ccedil;&otilde;es web e aplicativos full stack.</p>
+            <div class="home-layout">
+                <div class="home-content" data-reveal>
+                    <p class="home-eyebrow">Desenvolvimento web sob medida</p>
+                    <h1>Sites e sistemas que trabalham pelo seu negócio.</h1>
+                    <p class="home-lead">Da presença online à organização dos processos: soluções práticas, com atenção aos detalhes e contato direto com quem desenvolve.</p>
+                    <div class="home-actions">
+                        <a class="home-button" href="https://wa.me/5511991795884?text=Ol%C3%A1%2C%20Leonardo!%20Quero%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Vamos conversar</a>
+                        <a class="home-button home-button--secondary" href="projects.html">Conheça os projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="home-author">
+                        <p class="home-signature">Leonardo Dalmazzo</p>
+                        <p class="home-caption">Seu projeto, do primeiro contato à evolução.</p>
+                    </div>
+                </div>
+
+                <div class="case-carousel" data-case-carousel data-reveal role="region" aria-roledescription="carrossel" aria-label="Projetos em destaque">
+                    <div class="case-carousel__heading">
+                        <span>Projetos em destaque</span>
+                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    </div>
+                    <div class="case-carousel__stage" data-case-stage>
+                        <article class="case-slide" data-case-slide role="group" aria-roledescription="slide" aria-label="1 de 2: Loctubo">
+                            <div class="case-slide__preview">
+                                <img src="assets/imgs/projects/www.loctubo.com.br/www.loctubo.com.br_ (01).png" alt="Site da Loctubo com catálogo de equipamentos para locação" width="1440" height="900" fetchpriority="high" decoding="async" draggable="false">
+                            </div>
+                            <div class="case-slide__body">
+                                <p class="home-eyebrow">Site institucional · Catálogo digital</p>
+                                <h2>Loctubo</h2>
+                                <p>Equipamentos, busca e pedidos de orçamento em uma experiência simples e responsiva.</p>
+                                <a class="home-text-link" href="https://www.loctubo.com.br/" target="_blank" rel="noopener noreferrer">Visitar o site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="case-carousel__sr-only"> da Loctubo (abre em nova aba)</span></a>
+                            </div>
+                        </article>
+                        <article class="case-slide" data-case-slide role="group" aria-roledescription="slide" aria-label="2 de 2: 3Finances">
+                            <div class="case-slide__preview">
+                                <img src="assets/imgs/projects/threefinances.onrender.com/threefinances.onrender.com_ (02).png" alt="Painel do 3Finances com resumo financeiro e lançamentos" width="1440" height="900" loading="lazy" decoding="async" draggable="false">
+                            </div>
+                            <div class="case-slide__body">
+                                <p class="home-eyebrow">Sistema web · Organização financeira</p>
+                                <h2>3Finances</h2>
+                                <p>Painel, lançamentos e categorias para organizar as finanças. Acesso com conta de usuário.</p>
+                                <a class="home-text-link" href="https://threefinances.onrender.com/Account/Login?ReturnUrl=%2F" target="_blank" rel="noopener noreferrer">Conhecer o sistema <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="case-carousel__sr-only"> 3Finances (abre em nova aba)</span></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="case-carousel__controls" data-case-controls hidden>
+                        <span class="case-carousel__count" data-case-count aria-live="polite" aria-atomic="true">01 / 02 · Loctubo</span>
+                        <div class="case-carousel__arrows">
+                            <button type="button" data-case-prev aria-label="Projeto anterior"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+                            <button type="button" data-case-next aria-label="Próximo projeto"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <section id="monthly-support" class="section home-commercial home-support" aria-labelledby="support-title">
+            <div class="home-support__layout">
+                <header class="home-section-heading" data-reveal>
+                    <p class="home-eyebrow">Continuidade, quando você precisar</p>
+                    <h2 id="support-title">O próximo passo também tem suporte.</h2>
+                    <p>Acompanhamento mensal para manter seu site ou sistema atualizado e evoluir junto com o seu negócio.</p>
+                    <a class="home-text-link" href="#contact" data-contact-interest="mensal">Quero acompanhamento mensal <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </header>
+                <div class="home-support__details" data-reveal>
+                    <div class="home-support__grid">
+                        <article><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i><div><h3>Manutenção</h3><p>Correções e atualizações no que já está funcionando.</p></div></article>
+                        <article><i class="fas fa-laptop-code" aria-hidden="true"></i><div><h3>Evolução contínua</h3><p>Melhorias de conteúdo e funcionalidades, conforme suas prioridades.</p></div></article>
+                        <article><i class="fas fa-comments" aria-hidden="true"></i><div><h3>Contato direto</h3><p>Uma conversa próxima para alinhar demandas e próximos passos.</p></div></article>
+                    </div>
+                    <p class="home-support__terms">Escopo, prazos de atendimento e valor mensal combinados na proposta.</p>
+                </div>
+            </div>
+        </section>
         <section id="about" class="section about" data-aos="fade-up">
             <div class="about-content">
                 <h2 data-aos="fade-up">Sobre</h2>
@@ -65,8 +132,8 @@
         </section>
 
         <section id="contact" class="section contact" data-aos="fade-up">
-            <h2>Contato</h2>
-            <p class="contact-lead">Estou aberto a novas oportunidades, projetos e colaborações. Envie uma mensagem por uma das plataformas abaixo:</p>
+            <h2>Vamos conversar sobre o que você precisa?</h2>
+            <p class="contact-lead">Conte um pouco sobre sua empresa e o que gostaria de criar ou melhorar. A partir dessa conversa, podemos definir o escopo, o prazo e uma proposta.</p>
 
             <ul class="contact-list">
                 <li><i class="fas fa-envelope"></i> <a
@@ -76,29 +143,39 @@
                         target="_blank">LinkedIn</a></li>
                 <li><i class="fab fa-github"></i> <a href="https://github.com/LeonardoDalmazzo"
                         target="_blank">GitHub</a></li>
-                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511991795884" target="_blank">WhatsApp</a>
+                <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/5511991795884?text=Ol%C3%A1%2C%20Leonardo!%20Quero%20conversar%20sobre%20um%20site%20ou%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer">Conversar no WhatsApp</a>
                 </li>
             </ul>
 
             <div class="form-area" data-aos="fade-up">
-                <p>Enviar um e-mail: </p>
-                <form action="https://formsubmit.co/leonardodalmazzo.dev@gmail.com" method="POST" autocomplete="off">
+                <p>Prefere e-mail? Deixe sua mensagem.</p>
+                <form action="https://formsubmit.co/leonardodalmazzo.dev@gmail.com" method="POST">
 
                     <input type="hidden" name="_template" value="table">
 
                     <input type="text" name="_honey" style="display:none" />
 
                     <input type="hidden" name="_next"
-                        value="https://leonardodalmazzo.github.io/Leonardo-Dalmazzo/thanks.html">
+                        value="https://leonardodalmazzo.com/thanks.html">
 
                     <input type="hidden" name="_autoresponse"
                         value="Obrigado pelo contato! Recebi sua mensagem e retornarei assim que poss&iacute;vel." />
 
-                    <input type="text" name="name" placeholder="Seu nome completo" required />
-                    <input type="email" name="email" placeholder="Seu melhor e-mail" required />
-                    <textarea name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                    <label for="contact-name">Seu nome</label>
+                    <input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Como posso chamar você?" required />
+                    <label for="contact-email">E-mail para retorno</label>
+                    <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="voce@empresa.com.br" required />
+                    <label for="contact-interest">Como posso ajudar?</label>
+                    <select id="contact-interest" name="interest" required>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="novo">Novo projeto</option>
+                        <option value="melhoria">Melhorar o que já tenho</option>
+                        <option value="mensal">Acompanhamento mensal</option>
+                    </select>
+                    <label for="contact-message">Conte um pouco sobre sua necessidade</label>
+                    <textarea id="contact-message" name="message" rows="4" placeholder="O que sua empresa faz e o que você gostaria de resolver?" required></textarea>
 
-                    <button type="submit">Enviar</button>
+                    <button type="submit">Enviar minha mensagem</button>
                 </form>
             </div>
 
@@ -244,6 +321,7 @@
 
     <script src="components/layout/header/header.js"></script>
     <script src="components/layout/footer/footer.js"></script>
+    <script src="components/carousel/caseCarousel.js"></script>
     <script src="js/script.js"></script>
     <script src="js/colorCustomizer.js"></script>
 </body>
